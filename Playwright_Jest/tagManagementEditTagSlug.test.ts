@@ -2,6 +2,7 @@ import { chromium } from "playwright";
 
 import {LoginPage} from './loginPage'
 import { NewTag } from "./newTag";
+import {Screen} from "./screen";
 import { SelectTag } from './selectTag';
 
 const config = require('../playwright_properties.json');
@@ -33,6 +34,7 @@ describe('Launch Tag tests', () => {
         
         const loginPage = new LoginPage(page, url, userEmail, userPassword);
         const newTag = new NewTag(page);
+        const screen = new Screen(page,pathScreenshotsTest,version);
         const selectedTag = new SelectTag(page);
 
         let nameTag = "Original_Slug_Title_Tag"
@@ -42,16 +44,16 @@ describe('Launch Tag tests', () => {
         //Abrir la URL a probar en la página singin y dirigirse a Tag
         
         await loginPage.login();
-        await page.screenshot({path: pathScreenshotsTest+`./${version}1_login.png`});
+        await screen.shot('login');
         
         
         //Interactuar con la aplicación web: Crear nuevo Tag
         await newTag.clickNewTag();
-        await page.screenshot({path: pathScreenshotsTest+`./${version}2_goToCreateTag.png`});
+        await screen.shot('goToCreateTag');
         await newTag.fillNameTag(nameTag);
         await newTag.fillNameDescription(descriptionTag);
         await newTag.clickSaveTag();
-        await page.screenshot({path: pathScreenshotsTest+`./${version}3_See_Slug_${nameTag}.png`})
+        await screen.shot('See_Slug_${nameTag}');
        
         
         //Edit Slug Tag
@@ -59,7 +61,8 @@ describe('Launch Tag tests', () => {
 
         await selectedTag.deleteSlugTag();
         await selectedTag.fillSlugTag(nameSlugTag);
-        await page.screenshot({path: pathScreenshotsTest+`./${version}4_New_slug_${nameTag}.png`})
+        await screen.shot(`New_slug_${nameTag}`);`
+        `
         await selectedTag.clickSaveTag();
     
 
@@ -67,7 +70,7 @@ describe('Launch Tag tests', () => {
         await page.click("text=Tags");
         let feedback = await page.$(`text=${nameSlugTag}`);
         
-        await page.screenshot({path: pathScreenshotsTest+`./${version}5_seeNewTag.png`});
+        await screen.shot('seeNewTag');
 
         //Finalizar la prueba
         await browser.close();

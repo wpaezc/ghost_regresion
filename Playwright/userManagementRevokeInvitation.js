@@ -31,8 +31,8 @@ console.log('Run tests for USER MANAGEMENT');
     const context = await browser.newContext();
     const page = await context.newPage();
     const loginPage = new LoginPage(page, url, user, password);
-   const navigator = new Navigate(page);
-const screen = new Screen(page,pathScreenshotsTest,version);
+    const navigator = new Navigate(page);
+    const screen = new Screen(page,pathScreenshotsTest,version);
     const editor = new Editor(page);
     
     await loginPage.enter_ghost();

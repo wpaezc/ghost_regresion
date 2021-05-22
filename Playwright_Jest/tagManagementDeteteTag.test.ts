@@ -2,6 +2,7 @@ import { chromium } from "playwright";
 
 import {LoginPage} from './loginPage'
 import { NewTag } from "./newTag";
+import {Screen} from "./screen";
 import { SelectTag } from './selectTag';
 
 const config = require('../playwright_properties.json');
@@ -33,6 +34,7 @@ describe('Launch Tag tests', () => {
         
         const loginPage = new LoginPage(page, url, userEmail, userPassword);
         const newTag = new NewTag(page);
+        const screen = new Screen(page,pathScreenshotsTest,version);
         const selectedTag = new SelectTag(page);
 
         let nameTag = "To_Delete_Title_Tag"
@@ -41,16 +43,17 @@ describe('Launch Tag tests', () => {
         //Abrir la URL a probar en la página singin y dirigirse a Tag
         
         await loginPage.login();
-        await page.screenshot({path: pathScreenshotsTest+`./${version}1_login.png`});
+        await screen.shot('login')
         
         
         //Interactuar con la aplicación web: Crear nuevo Tag
         await newTag.clickNewTag();
-        await page.screenshot({path: pathScreenshotsTest+`./${version}2_goToCreateTag.png`});
+        await screen.shot('goToCreateTag')
         await newTag.fillNameTag(nameTag);
         await newTag.fillNameDescription(descriptionTag);
         await newTag.clickSaveTag();
-        await page.screenshot({path: pathScreenshotsTest+`./${version}3_See_${nameTag}.png`})
+        await screen.shot(`See_${nameTag}`)
+
         await page.click("text=Tags");
         
        
@@ -65,8 +68,7 @@ describe('Launch Tag tests', () => {
         //Verification 
         await page.click("text=Tags");
         let feedback = await page.$(`text=${nameTag}`);
-        
-        await page.screenshot({path: pathScreenshotsTest+`./${version}4_seeNotTag.png`});
+        await screen.shot('seeNotTag')
 
         //Finalizar la prueba
         await browser.close();
