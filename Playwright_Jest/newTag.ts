@@ -1,11 +1,13 @@
 import {Page, BrowserContext} from 'playwright';
 
 export class NewTag {
-
+    
     constructor (
 
         public page:Page,
         ){}
+
+        urlTags: string = 'http://localhost:2368/ghost/#/tags';
 
         btnNewTag : string = "text='New tag'";
         txtNameTag: string = "input[name='name']";
@@ -15,8 +17,16 @@ export class NewTag {
         txtMetaDescriptionTag: string = "textarea[name='metaDescription']";
         btnSaveTag: string = "text='Save'";
 
+        async goToTag(){
+            await Promise.all([
+                this.page.waitForNavigation({url: this.urlTags}),
+                this.page.click("text=Tags"),
+              ]);
+        }
 
         async clickNewTag(){
+            await this.goToTag();
+            // await this.page.pause();
             await this.page.click(this.btnNewTag);
         }
 
