@@ -1,6 +1,7 @@
 const { LoginPage } = require('./models/LoginPage');
 const { Navigate } = require('./models/Navigate');
 const { Editor } = require('./models/Editor');
+const {Screen} = require('./models/screen')
 //Importar Playwright
 const playwright = require('playwright');
 const config = require('../playwright_properties.json');
@@ -31,27 +32,32 @@ console.log('Run tests for USER MANAGEMENT');
     const page = await context.newPage();
     const loginPage = new LoginPage(page, url, user, password);
     const navigator = new Navigate(page);
+    const screen = new Screen(page,pathScreenshotsTest,version);
     const editor = new Editor(page);
     
     await loginPage.enter_ghost();
-    await page.screenshot({path: pathScreenshotsTest+ `./${version}_1successfulLogin.png`});
+    await screen.shot('successfulLogin')
 
     // En la pagina principal, hacer click en la opcion Staff del sidebar
     await page.click('text=Staff')
     await new Promise(r => setTimeout(r, 3000));
-    await page.screenshot({path: pathScreenshotsTest+ `./${version}_2displayStaff.png`});
+    await screen.shot('displayStaff')
+
     // En la pagina de Staff, hacer click en enviar invitacion  y llenar sus credenciales
     await page.click('span:has-text("Invite people")');
-    await page.screenshot({path: pathScreenshotsTest+ `./${version}_3inviteUserForm.png`});
+    await screen.shot('inviteUserForm')
 
     await page.fill('id=new-user-email', 'example@gmail.com')
-    await page.screenshot({path: pathScreenshotsTest+ `./${version}_4filledInvitation.png`})
+    await screen.shot('filledInvitation')
+
     await page.click('"Send invitation now"')
     await new Promise(r => setTimeout(r, 7000));
-    await page.screenshot({path: pathScreenshotsTest+ `./${version}_5sentInvitation.png`})
+    await screen.shot('sentInvitation')
+
     await page.click('text=Tags')
     await page.click('text=Staff')
-    await page.screenshot({path: pathScreenshotsTest+ `./${version}_6staffPageWithPendingInvitation.png`});
+    await screen.shot('staffPageWithPendingInvitation')
+
     //Finalizar la prueba
     await page.click('"Revoke"')
 

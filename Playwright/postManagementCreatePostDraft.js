@@ -2,6 +2,7 @@
 const { LoginPage } = require('./models/LoginPage');
 const { Navigate } = require('./models/Navigate');
 const { Editor } = require('./models/Editor');
+const {Screen} = require('./models/screen')
 const playwright = require('playwright');
 const config = require('../playwright_properties.json');
 
@@ -31,26 +32,32 @@ console.log('Run tests for POST MANAGEMENT');
     const page = await context.newPage();
     const loginPage = new LoginPage(page, url, user, password);
     const navigator = new Navigate(page);
+    const screen = new Screen(page,pathScreenshotsTest,version);
     const editor = new Editor(page);
     await loginPage.enter_ghost()
-    await page.screenshot({path: pathScreenshotsTest+ `./${version}_1good_login.png`})
-    
+    await screen.shot('good_login')
+
     //Abrir la URL a probar en la página y cargar el proyecto en una SPA
     await navigator.clickOnSidebar('posts')
-    await page.screenshot({path: pathScreenshotsTest+ `./${version}_2visit_posts.png`})
+    await screen.shot('visit_posts')
+
     // Crear nueva post
     await navigator.clickOnNewEditor('post')
-    await page.screenshot({path: pathScreenshotsTest+ `./${version}_3new_post.png`})
+    await screen.shot('new_post')
+
     // editar titulo del post
     await editor.fillTitle("Using page objets")
-    await page.screenshot({path: pathScreenshotsTest+ `./${version}_4editing.png`})
+    await screen.shot('editing')
+
     // // salir del editor
     await navigator.saveAndFinishEditing('posts')
-    await page.screenshot({path: pathScreenshotsTest+ `./${version}_5returning_and_saving.png`})
+    await screen.shot('returning_and_saving')
+
 
     await page.click('section .ember-view');
     await new Promise(r => setTimeout(r, 1000));
-    await page.screenshot({path: pathScreenshotsTest+ `./${version}_6end_state.png`})
+    await screen.shot('end_state')
+
 
     //Finalizar la prueba
     console.log('Ok Scenario: Create post draft')

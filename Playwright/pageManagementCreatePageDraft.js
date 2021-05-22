@@ -1,6 +1,7 @@
 const { LoginPage } = require('./models/LoginPage');
 const { Navigate } = require('./models/Navigate');
 const { Editor } = require('./models/Editor');
+const {Screen} = require('./models/screen')
 //Importar Playwright
 const playwright = require('playwright');
 const config = require('../playwright_properties.json');
@@ -32,28 +33,30 @@ console.log('Run tests for PAGE MANAGEMENT');
     const loginPage = new LoginPage(page, url, user, password);
     const navigator = new Navigate(page);
     const editor = new Editor(page);
+    const screen = new Screen(page,pathScreenshotsTest,version);
     
     //Abrir la URL a probar en la página y cargar el proyecto en una SPA
     await loginPage.enter_ghost()
-    await page.screenshot({path: pathScreenshotsTest+ `./${version}_1good_login.png`})
+    await screen.shot('good_login')
     
     //Abrir la URL a probar en la página y cargar el proyecto en una SPA
     await navigator.clickOnSidebar('pages')
-    await page.screenshot({path: pathScreenshotsTest+ `./${version}_2visit_pages.png`})
+    await screen.shot('visit_pages')
     // Crear nueva pagina
     await navigator.clickOnNewEditor('page')
-    await page.screenshot({path: pathScreenshotsTest+ `./${version}_3new_page.png`})
+    await screen.shot('new_page')
     // editar titulo del pagina
     await editor.fillTitle("Using page objets")
     await new Promise(r => setTimeout(r, 1000));
-    await page.screenshot({path: pathScreenshotsTest+ `./${version}_4editing.png`})
+    await screen.shot('editing')
+    
     // // salir del editor
     await navigator.saveAndFinishEditing('pages')
-    await page.screenshot({path: pathScreenshotsTest+ `./${version}_5returning_and_saving.png`})
-
+    await screen.shot('returning_and_saving')
+    
     await page.click('section .ember-view');
     await new Promise(r => setTimeout(r, 1000));
-    await page.screenshot({path: pathScreenshotsTest+ `./${version}_6end_state.png`})
+    await screen.shot('end_state')
 
     //Finalizar la prueba
     console.log('Ok Scenario: Create page draft')

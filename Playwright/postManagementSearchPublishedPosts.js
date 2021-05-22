@@ -3,6 +3,7 @@ const { LoginPage } = require('./models/LoginPage');
 const { Navigate } = require('./models/Navigate');
 const playwright = require('playwright');
 const config = require('../playwright_properties.json');
+const {Screen} = require('./models/screen')
 
 const ghostUrl = config.ghostUrl
 const user = config.user
@@ -29,21 +30,25 @@ console.log('Run tests for POST MANAGEMENT');
     const context = await browser.newContext();
     const page = await context.newPage();
     const loginPage = new LoginPage(page, url, user, password);
-    const navigator = new Navigate(page);
+   const navigator = new Navigate(page);
+const screen = new Screen(page,pathScreenshotsTest,version);
     await loginPage.enter_ghost()
     
     //Abrir la URL a probar en la página y cargar el proyecto en una SPA
     await navigator.clickOnSidebar('posts')
-    await page.screenshot({path: pathScreenshotsTest+ `./${version}_1visit_posts.png`})
+    await screen.shot('visit_posts')
+
 
     // // Buscar todo los bosquejos de posts
     await page.click('text=All Posts ');
     await new Promise(r => setTimeout(r, 1000));
-    await page.screenshot({path: pathScreenshotsTest+ `./${version}_2click_all_posts.png`})
+    await screen.shot('click_all_posts')
+
 
     await page.click('text=Published Posts ');
     await new Promise(r => setTimeout(r, 1000));
-    await page.screenshot({path: pathScreenshotsTest+ `./${version}3_see_published_posts.png`})
+    await screen.shot('see_published_posts')
+
 
     //Finalizar la prueba
     console.log('Ok Scenario: Search published posts')
