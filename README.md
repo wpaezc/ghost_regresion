@@ -14,7 +14,7 @@ Las incidencias se encuentran en la lista <strong>Incidencias Generacion de Dato
 ## 3. Decripción de estrategias usadas
 
 
-## 4. Configuración necesaria
+## 4. Configuración necesaria antes de ejecutar las pruebas
 
 Para configurar **Playwright**:
 
@@ -46,6 +46,7 @@ Si ya tiene instalado kraken-mobile abrir el archivo ```kraken_properties.json``
 }
 ```
 
+## 5. Ejecutar los escenarios
 ### 4.1  Estrategia con **escenario aleatorio**
 Los **20** escenarios desarrolladas con _kraken_ usan escenarios aleatorios. Para correr las pruebas usar el comando:
 
