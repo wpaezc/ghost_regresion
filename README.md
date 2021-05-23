@@ -12,11 +12,17 @@
 Las incidencias se encuentran registradas en Trello: [Link](https://trello.com/b/e5H7xPH5/incidencias-ghost-3425)
 
 ## 4. Resultados finales
-Hemos enfocado las 10 pruebas de regresión con la herramienta _resembleJS_, y para terminos de evaluar la herramienta _BackstopJs_ solo hemos realizado 1 prueba de regresión con esta libreria por la dificultad para configurar los escenarios.
+Hemos enfocado las pruebas de generacion de datos en las herramientas Playwright, Kraken, Mockaroo y Faker. Los test se corren sobre la version 3.42.5 de Ghost.
 
-Los screenshots para ambas versiones de Ghost se encuentra en las carpetas **_./kraken_screeenshots_** y **_./playwright_screenshots**. Dentro de estos, cada escenario bajo prueba tiene su propia carpeta, ahi se ecuentran los screenshots para cada paso ejecutado con la versión v1(3.3.0) y v2(3.42.5).
+Se corrieron mas de 120 pruebas Pool a priori con las herramientas de Playwright y Mockaroo
 
-Los resutados de los tests de regresión con ResembleJS se encuentra en la carpeta **./resemblejs_reports**. Cada escenario bajo prueba tiene su propia carpeta, los escenarios de Kraken tienen nombres son subguión(_) y los del playwright con camelCase. En total se evaluarón 10 escenarios, cada uno cuenta con un **_index.html_** donde se puede ver el resultado final.
+Se corrieron mas de 120 pruebas con las herramientas de Playwright y Faker
+
+Se corrieron mas de 120 pruebas con las herramientas de Kraken y Mockaro
+
+Los screenshots de los test se encuentran en las carpetas **_./kraken_screeenshots_** y **_./playwright_screenshots**.
+
+
 
 Los 10 escenarios seleccionados para las pruebas con _resembleJS_ son los siguientes:
 
