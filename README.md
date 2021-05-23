@@ -287,6 +287,6 @@ Tan solo se necesita tener instalado la herramienta ```npm install -g backstopjs
   19. userManagementChangeUserDataRandom.js
   20. userManagementInviteStaffRandom.js
 
-- En el folder <strong> playwright_screenshots</strong> se encuentran los folders con algunos screenshots de las pruebas aleatorias. Los folders se pueden identificar con el prefijo <strong> faker </faker> o el sufijo <strong> Random </strong>
+- En el folder <strong> playwright_screenshots</strong> se encuentran los folders con algunos screenshots de las pruebas aleatorias. Los folders se pueden identificar con el prefijo <strong> faker </strong> o el sufijo <strong> Random </strong>
 - En el folder <strong> Playwright\models </strong> se encuentra tres configuraciones para acceder a las pruebas: LoginPage.js, LoginPage2.js y LoginPage3.js
-- Las incidencias estan registradas en  [Link](https://trello.com/b/e5H7xPH5/incidencias-ghost-3425) bajo el nombre: Incidencias Generacion de Datos
+- Las incidencias estan registradas en  [Link](https://trello.com/b/e5H7xPH5/incidencias-ghost-3425) en la lista con nombre: Incidencias Generacion de Datos
