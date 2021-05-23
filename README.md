@@ -124,7 +124,7 @@ Al final se crearán 20 carpetas en el folder **_./kraken_screenshots_**. Los sc
 
 
 
-## 6. Todas las funcionalidades bajo pruebas y escenarios
+## 6. Todas las funcionalidades bajo pruebas de generacion de datos
 
 - Escenarios de funcionalidad **Manejo de posts**
 
