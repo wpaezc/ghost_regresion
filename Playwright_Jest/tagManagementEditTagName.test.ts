@@ -32,8 +32,8 @@ describe('Launch Tag tests', () => {
         const page = await context.newPage();
         
         const loginPage = new LoginPage(page, url, userEmail, userPassword);
-        const newTag = new NewTag(page);
         const screen = new Screen(page,pathScreenshotsTest,version);
+        const newTag = new NewTag(page,screen);
         const selectedTag = new SelectTag(page);
 
         let nameTag = "Original_Title_Tag"
