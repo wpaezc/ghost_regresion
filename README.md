@@ -84,6 +84,12 @@ node Playwright/poolAPrioriUserManagementChangePassword.js #10 escenarios
 node Playwright/poolAPrioriUserManagementChangeUserData.js #10 escenarios
 ```
 
+Para ejecutar los **25** escenarios en _playwright-jest_ correr el siguiente comando:
+
+```sh
+npm test
+```
+
 ### 5.3  Estrategia con **pool de datos (pseudo) aleatorio dinámico**
 
 Para ejecutar los **10** escenarios en _playwright_ correr el archivo de forma individual:
