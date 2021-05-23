@@ -171,6 +171,17 @@ const stages = [
     "meta_description":dataTag[indexPool[12]].meta_description,
     "meta_url":dataTag[indexPool[12]].slug,
     },
+
+    {"stage":13,
+    "testDescription":"try create Tag with long name tag",
+    "nameTag":dataTag[indexPool[13]].name.repeat(20),
+    "slug": dataTag[indexPool[1]].slug,
+    "color": "",
+    "descriptionTag":"",
+    "meta_title":"",
+    "meta_description":"",
+    "meta_url":"",
+    },
 ]
 
 describe('Launch Tag tests', () => {
@@ -178,8 +189,10 @@ describe('Launch Tag tests', () => {
     stages.forEach((st)=>{
 
         const pathScreenshotsTest =`./${nameScreenPath}/${titleTest}/stage_${st.stage}/`
-        console.log(pathScreenshotsTest);
-        test(st.testDescription, async () => {
+        
+        const testDescription=`Stage ${st.stage}: ${st.testDescription}`
+        
+        test(testDescription, async () => {
             
             
             //Contenido de la prueba

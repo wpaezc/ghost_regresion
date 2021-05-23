@@ -155,17 +155,50 @@ const stages = [
     "meta_title":dataTag[indexPool[12]].meta_title,
     "meta_description":dataTag[indexPool[12]].meta_description,
     "meta_url":dataTag[indexPool[12]].slug,
-    }
+    },
+
+    {"stage":13,
+    "testDescription":"Should not create Tag with long name tag",
+    "nameTag":dataTag[indexPool[13]].name.repeat(20),
+    "color": "",
+    "descriptionTag":"",
+    "meta_title":"",
+    "meta_description":"",
+    "meta_url":"",
+    },
+    
+    {"stage":14,
+    "testDescription":"try create Tag with name 191  characters without white-space",
+    "nameTag":"a".repeat(191),
+    "color": dataTag[indexPool[14]].color,
+    "descriptionTag":dataTag[indexPool[14]].description,
+    "meta_title":dataTag[indexPool[14]].meta_title,
+    "meta_description":dataTag[indexPool[14]].meta_description,
+    "meta_url":dataTag[indexPool[14]].canonical_url,
+    },
+
+    {"stage":15,
+    "testDescription":"try create Tag with name 191  characters with white-space ",
+    "nameTag":dataTag[indexPool[15]].name.repeat(20).substring( 0, 191),
+    "color": "",
+    "descriptionTag":"",
+    "meta_title":"",
+    "meta_description":"",
+    "meta_url":"",
+    },
+
+    
 ]
 
 describe('Launch Tag tests', () => {
 
     stages.forEach((st)=>{
 
-        const pathScreenshotsTest =`./${nameScreenPath}/${titleTest}/stage_${st.stage}/`
-        
-        test(st.testDescription, async () => {
+        const pathScreenshotsTest =`./${nameScreenPath}/${titleTest}/stage_${st.stage}/`;
 
+        const testDescription=`Stage ${st.stage}: ${st.testDescription}`;
+        
+        test(testDescription, async () => {
             
             //Contenido de la prueba
             //Creación del objeto browser, el contexto del mismo y el objeto page para manejar la página
