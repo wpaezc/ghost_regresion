@@ -13,8 +13,10 @@ Las incidencias se encuentran en la lista <strong>Incidencias Generacion de Dato
 
 ## 3. Descripción de estrategias usadas
 
+En el siguiente link en la Wiki: [Link](https://github.com/wpaezc/ghost_regresion/wiki/Estrategias-usadas)
 
 ## 4. Configuración necesaria antes de ejecutar las pruebas
+Dado la cantidad de escenarios bajo pruebas, es sumamente importante tener configurado GHOST 3.42.5 para no limitar los **100** inicios de sesión por hora. Se recomienda usar [este archivo de configuración](https://github.com/TryGhost/Ghost/blob/main/core/shared/config/defaults.json#L52) como base, cambiando los valores del key "span" necesarios. 
 
 Para configurar **Playwright**:
 
