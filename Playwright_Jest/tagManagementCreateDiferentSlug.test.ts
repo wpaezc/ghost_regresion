@@ -8,7 +8,6 @@ const titleTest = "tagManagementCreateDiferentSlug"
 const config = require('../playwright_properties.json');
 
 const nameScreenPath=config.nameScreenPath
-const pathScreenshotsTest =`./${nameScreenPath}/${titleTest}/`
 const version= `${config.version}_`
 
 const ghostUrl = config.ghostUrl
@@ -174,15 +173,16 @@ describe('Launch Tag tests', () => {
 
     stages.forEach((st)=>{
 
-        const pathScreenshotsTest =`../${nameScreenPath}/${titleTest}/stage_${st.stage}/`
-
+        let pathScreenshotsTest =`../${nameScreenPath}/${titleTest}/stage_${st.stage}/`
+        
         test(st.testDescription, async () => {
-
+            
+            
             //Contenido de la prueba
             //Creación del objeto browser, el contexto del mismo y el objeto page para manejar la página
             const browser = await chromium.launch({
             })
-
+            
             const context = await browser.newContext();
             const page = await context.newPage();
             
