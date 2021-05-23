@@ -9,7 +9,7 @@
 
 ## 2. Incidencias reportadas
 
-Las incidencias se encuentran registradas en Trello: [Link](https://trello.com/b/e5H7xPH5/incidencias-ghost-3425)
+Las incidencias se encuentran en la lista <strong>Incidencias Generacion de Datos </strong> registrada en Trello: [Link](https://trello.com/b/e5H7xPH5/incidencias-ghost-3425)
 
 ## 3. Resultados finales
 Hemos enfocado las pruebas de generacion de datos en las herramientas Playwright, Kraken, Mockaroo y Faker. Los test se corren sobre la version 3.42.5 de Ghost.
