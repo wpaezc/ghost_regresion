@@ -3,12 +3,16 @@ import { chromium } from "playwright";
 import {LoginPage} from './loginPage'
 import { NewTag } from "./newTag";
 import {Screen} from "./screen";
+// import {DataPool} from "./data-pool";
 
-const titleTest = "tagManagementCreateDiferentSlug"
+
+var assert = require('assert');
 const config = require('../playwright_properties.json');
 
-const nameScreenPath=config.nameScreenPath
-const version= `${config.version}_`
+const version= `${config.version}_`;
+const nameScreenPath=config.nameScreenPath;
+
+const titleTest = "tagManagementCreateDiferentSlug";
 
 const ghostUrl = config.ghostUrl
 const userEmail = config.user
@@ -173,8 +177,8 @@ describe('Launch Tag tests', () => {
 
     stages.forEach((st)=>{
 
-        let pathScreenshotsTest =`../${nameScreenPath}/${titleTest}/stage_${st.stage}/`
-        
+        const pathScreenshotsTest =`../${nameScreenPath}/${titleTest}/stage_${st.stage}/`
+        console.log(pathScreenshotsTest);
         test(st.testDescription, async () => {
             
             

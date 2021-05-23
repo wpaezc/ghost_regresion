@@ -7,8 +7,8 @@ import {Screen} from "./screen";
 const titleTest = "tagManagementCreateDafaultSlug"
 const config = require('../playwright_properties.json');
 
-const nameScreenPath=config.nameScreenPath
-const version= `${config.version}_`
+const nameScreenPath=config.nameScreenPath;
+const version= `${config.version}_`;
 
 
 const ghostUrl = config.ghostUrl
@@ -155,14 +155,14 @@ const stages = [
     "meta_title":dataTag[indexPool[12]].meta_title,
     "meta_description":dataTag[indexPool[12]].meta_description,
     "meta_url":dataTag[indexPool[12]].slug,
-    },
+    }
 ]
 
 describe('Launch Tag tests', () => {
 
     stages.forEach((st)=>{
 
-        let pathScreenshotsTest =`../${nameScreenPath}/${titleTest}/stage_${st.stage}/`
+        const pathScreenshotsTest =`../${nameScreenPath}/${titleTest}/stage_${st.stage}/`
         
         test(st.testDescription, async () => {
 
