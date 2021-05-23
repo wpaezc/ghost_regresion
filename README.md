@@ -38,17 +38,8 @@ Los screenshots de los escenarios se pueden encontrar en las siguientes carpetas
 |**Setting Management:** Invite staff|poolAPrioriUserManagementInviteStaff|Playwright|
 
 
-El resutados del test de regresión con BackstopJS se encuentra en el archivo **./backstop_data/html_report/index.html**. 
-El escenario seleccionado para la prueba con BackstopJs es:
 
-|Nombre del scenario| Carpeta | Herramienta para screenshots |
-|-----|-----|-----|
-|**User management:** Change user data|userManagementChangeUserData|Playwright|
-
-
-A continuación se describe los pasos para llegar a estos resultados. Se recomienda tener para ambas versiones una base de datos limpia con solo un usuario administrador y su password.
-
-## 5. Pasos para tomar screenshots en la versión Ghost 3.3.0
+## 4. Pasos para tomar screenshots en la versión Ghost 3.3.0
 Clonar el repositorio y cambiar el código al tag v1: ```git checkout tags/v1```
 La version de node recomendada es la ```12.20.1```. 
 
@@ -186,53 +177,7 @@ Se ejecutan las pruebas ***kraken*** con el comando: ```kraken-mobile run --prop
 
 Al final se crearán 20 carpetas en el folder **_./kraken_screenshots_**. Los screenshots de los 20 escenarios serán creados en el siguiente formato **_./kraken_screenshots/feature_scenario/v2_nombre_del_step.png**
 
-## 7. Generar reportes con ResembleJS
-Se debe encontrar en la rama ```master``` y tener todo instalado ```npm install```
 
-Para configurar los escenarios bajo pruebas se debe usar el archivo **resemblejs_config.json** y agregar/cambiar/quitar en el key "playwright_scenarios" las carpetas donde se encuentran los screenshots de las funcionalidades de playwright(carpeta playwright_screenshots); y agregar/cambiar/quitar en el key "kraken_scenarios" las carpetas donde se encuentran los screenshots de las funcionalidades de kraken(carpeta kraken_screenshots). Se puede poner los 40 scenarios.
-
-```json
-{
-  "url": "http://localhost:2368",
-  "kraken_scenarios": [
-    "post_management_create_post_published_now",
-    "post_management_create_post_published_on_future",
-    "tag_management_delete_tag",
-    "tag_management_change_tag_meta_data",
-    "page_management_unpublish_published_page"
-  ],
-  "playwright_scenarios": [
-    "userManagementInvalidInvitation",
-    "userManagementInvalidPassword",
-    "tagManagementEditTagName",
-    "pageManagementCreatePageDraft",
-    "postManagementCreatePostDraft"
-  ],
-  "options":{
-    "output": {
-      "errorColor": {
-        "red": 255,
-        "green": 0,
-        "blue": 255
-      },
-      "errorType": "movement",
-      "largeImageThreshold": 1200,
-      "useCrossOrigin": false,
-      "outputDiff": true
-    },
-    "scaleToSameSize": true,
-    "ignore": "antialiasing"
-  }
-}
-```
-
-Se ejecutan las pruebas de regresion con ***resembleJS*** con el comando: ```node resemblejs_evaluation.js```
-
-Luego verificar la carpeta _./resemblejs_reports_ donde se encontraran por cada escenario una carpeta, y dentro de ellas un archivo **index.html** donde puede visualizar el reporte.
-
-## 8. Generar reportes con backstopJS
-
-Tan solo se necesita tener instalado la herramienta ```npm install -g backstopjs``` y dar un ```backstop test``` para ver el resultado HTML. El archivo de configuracion para esta herramienta donde se pueden ver los escenarios creados es _./backstop.json_
 
 ## 9. Todas las funcionalidades bajo pruebas y escenarios
 
@@ -242,9 +187,7 @@ Tan solo se necesita tener instalado la herramienta ```npm install -g backstopjs
 |-|-|
 |Crear post sin publicar (Draft)|Crear post sin publicar (Draft)|
 |Crear post y publicar sin adicionar fecha|Crear post y publicar en el instante|
-|Consultar post publicados|Crear post con una fecha futura para su publicación|
-|Consultar post agendados|Crear post con un slug especifico en el URL| 
-|Consultar todos los post sin publicar|Cambiar estado de post de "Published" a "Unpublished"|
+
 
 - Escenarios de funcionalidad **Manejo de páginas**
 
@@ -252,9 +195,7 @@ Tan solo se necesita tener instalado la herramienta ```npm install -g backstopjs
 |-|-|
 |Crear página sin publicar (Draft)|Crear página sin publicar (Draft)|
 |Crear página y publicar sin adicionar fecha|Crear página y publicar en el instante|
-|Consultar páginas publicadas|Crear página con una fecha futura para su publicación|
-|Consultar páginas agendadas|Crear página con un slug especifico en el URL| 
-|Consultar todas las páginas sin publicar|Cambiar estado de página de "Published" a "Unpublished"|
+
 
 - Escenarios de funcionalidad **Manejo de Tags**
 
@@ -264,7 +205,7 @@ Tan solo se necesita tener instalado la herramienta ```npm install -g backstopjs
 |Crear tag con slug no por defecto |Crear tag y asociar post|
 |Modificar el slug de un tag ya creado|Cambiar slug de navegación del tag|
 |Modificar el titulo de un tag ya creado|Cambiar meta data del tag|
-|Eliminar tag sin post asociado|Eliminar un tag sin posts asociados|
+
 
 - Escenarios de funcionalidad **Manejo de usuario**
 
