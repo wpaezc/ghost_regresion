@@ -11,7 +11,7 @@
 
 Las incidencias se encuentran en la lista <strong>Incidencias Generacion de Datos </strong> registrada en Trello: [Link](https://trello.com/b/e5H7xPH5/incidencias-ghost-3425)
 
-## 3. Decripción de estrategias usadas
+## 3. Descripción de estrategias usadas
 
 
 ## 4. Configuración necesaria antes de ejecutar las pruebas
@@ -55,7 +55,7 @@ Los **20** escenarios desarrolladas con _kraken_ usan escenarios aleatorios. Par
 Para ejecutar los **12** escenarios en _playwright_ correr cada escenario de forma individual:
 
 ```sh
-node Playwright/fakerSettingsManagementChangeBlogInfoInvalid.js
+node Playwright/fakerSettingsManagementChangeBlogInfoInvalid.js 
 node Playwright/fakerSettingsManagementChangeMetadataLimit.js
 node Playwright/fakerUserManagementChangeUserDataLimit.js
 node Playwright/fakerSettingsManagementChangeBlogInfoLimit.js
@@ -75,11 +75,11 @@ Para ejecutar los **130** escenarios en _playwright_ correr cada archivo de form
 ```sh
 node poolAPrioriPageManagementCreatePageDraft.js #25 escenarios
 node poolAPrioriPageManagementPublishPage.js #25 escenarios
-node poolAPrioriPostManagementCreatePostDraft.js
-node poolAPrioriPostManagementPublishPost.js
-node poolAPrioriSettingsManagementChangeMetadata.js
+node poolAPrioriPostManagementCreatePostDraft.js #25 escenarios
+node poolAPrioriPostManagementPublishPost.js #25 escenarios
+node poolAPrioriSettingsManagementChangeMetadata.js #10 escenarios
 node poolAPrioriUserManagementChangePassword.js #10 escenarios
-node poolAPrioriUserManagementChangeUserData.js
+node poolAPrioriUserManagementChangeUserData.js #10 escenarios
 ```
 
 ### 4.3  Estrategia con **pool de datos (pseudo) aleatorio dinámico**
@@ -90,7 +90,7 @@ Para ejecutar los **10** escenarios en _playwright_ correr el archivo de forma i
 node poolRandomUserManagementInviteStaff.js #10 escenarios
 ```
 
-## 5. Todas las funcionalidades bajo pruebas de generacion de datos
+## 6. Todas las funcionalidades bajo pruebas de generación de datos
 
 - Escenarios de funcionalidad **Manejo de posts**
 
@@ -106,6 +106,8 @@ node poolRandomUserManagementInviteStaff.js #10 escenarios
 |-|-|
 |Crear página sin publicar (Draft)|Crear página sin publicar (Draft)|
 |Crear página y publicar sin adicionar fecha|Crear página y publicar en el instante|
+||Crear post con una fecha futura para su publicación|
+||Crear post con un slug especifico en el URL| 
 
 - Escenarios de funcionalidad **Manejo de Tags**
 
@@ -115,7 +117,6 @@ node poolRandomUserManagementInviteStaff.js #10 escenarios
 |Crear tag con slug no por defecto |Crear tag y asociar post|
 |Modificar el slug de un tag ya creado|Cambiar slug de navegación del tag|
 |Modificar el titulo de un tag ya creado|Cambiar meta data del tag|
-
 
 - Escenarios de funcionalidad **Manejo de usuario**
 
