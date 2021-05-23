@@ -167,16 +167,6 @@ const stages = [
     "meta_url":dataTag[indexPool[12]].slug,
     },
 
-    {       
-    "stage":13,
-    "testDescription":"Should not create tag with wrong color ",
-    "nameTag":dataTag[indexPool[13]].name,
-    "color": "aaa",
-    "descriptionTag":"",
-    "meta_title":'',
-    "meta_description":'',
-    "meta_url":'',
-    },
 
 ]
 
