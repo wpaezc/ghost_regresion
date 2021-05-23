@@ -11,7 +11,7 @@ const password = config.password
 const version= `${config.version}_`
 const nameScreenPath=config.nameScreenPath
 
-const titleTest = "postManagementPublishPostRandom"
+const titleTest = "poolAPrioriPostManagementPublishPost"
 const pathScreenshotsTest =`./${nameScreenPath}/${titleTest}/`
 const dataPool = require("./poolSources/postManagementublishPostPool.json");
 
