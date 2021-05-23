@@ -4,6 +4,7 @@ const { Editor } = require('./models/Editor');
 const {Screen} = require('./models/screen')
 const playwright = require('playwright');
 const config = require('../playwright_properties.json');
+const faker = require('faker');
 
 const ghostUrl = config.ghostUrl
 const user = config.user
@@ -11,7 +12,7 @@ const password = config.password
 const version= `${config.version}_`
 const nameScreenPath=config.nameScreenPath
 
-const titleTest = "userManagementInvalidPassword"
+const titleTest = "FakeruserManagementInvalidPassword"
 const pathScreenshotsTest =`./${nameScreenPath}/${titleTest}/`
 
 const url = `${ghostUrl}/ghost/#/signin`;
@@ -30,8 +31,8 @@ console.log('Run tests for USER MANAGEMENT');
     const context = await browser.newContext();
     const page = await context.newPage();
     const loginPage = new LoginPage(page, url, user, password);
-   const navigator = new Navigate(page);
-const screen = new Screen(page,pathScreenshotsTest,version);
+    const navigator = new Navigate(page);
+    const screen = new Screen(page,pathScreenshotsTest,version);
     const editor = new Editor(page);
     
     //Abrir la URL a probar en la página y cargar el proyecto en una SPA
@@ -48,8 +49,8 @@ const screen = new Screen(page,pathScreenshotsTest,version);
     await screen.shot('originalOwnerDetail')
     
     await page.fill('id=user-password-old', password)
-    await page.fill('id=user-password-new', 'admin12346')
-    await page.fill('id=user-new-password-verification', 'admin123456')
+    await page.fill('id=user-password-new', faker.git.shortSha())
+    await page.fill('id=user-new-password-verification', faker.git.shortSha())
     await screen.shot('passwordEntered')
     await page.click('"Change Password"')
     await screen.shot('passwordsDontMatch')
