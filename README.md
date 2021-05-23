@@ -101,9 +101,7 @@ Playwright_Jest/
 Playwright_Jest/
 
 ```
-Para ejecutar ejecutar los 5 escenarios faltantes ***playwright-jest*** usar el comando: ```npm test```
 
-Al final se crearán 29 carpetas en el folder **_./playwright_screenshots_**. Los screenshots de los 29 escenarios serán creados en el siguiente formato **_./playwright_screenshots/featureScenario/v2_nombre_del_step.png**
 
 ### 5.2 Tomar screenshots con Kraken
 En caso no tenga kraken-mobile instalado, se recomienda instalar la version de ruby ```2.6.7```, ejecutar un ```gem install bundler``` y luego ```bundle install```  
