@@ -38,18 +38,11 @@ Los screenshots de los escenarios se pueden encontrar en las siguientes carpetas
 |**Setting Management:** Invite staff|poolAPrioriUserManagementInviteStaff|Playwright|
 
 
-
-## 4. Pasos para tomar screenshots en la versión Ghost 3.3.0
-Clonar el repositorio y cambiar el código al tag v1: ```git checkout tags/v1```
-La version de node recomendada es la ```12.20.1```. 
-
-
-
-## 5. Pasos para tomar screenshots en la versión Ghost 3.42.5
+## 4. Pasos para tomar screenshots en la versión Ghost 3.42.5
 Clonar el repositorio y cambiar el código a master: ```git checkout master```
 La version de node recomendada es la ```12.20.1```. 
 
-### 5.1 Tomar screenshots con Playwright
+### 4.1 Tomar screenshots con Playwright
 Dar un ```npm install``` y cambiar los siguientes valores en el archivo de configuración _playwright_properties.json_ en caso que tenga otro ghostUrl, user o password. Es importante mantener en este archivo los valores de "version" v2 y "nameScreenPath" para generar correctamente los nombres del screenshot.
 
 ```json
@@ -103,7 +96,7 @@ Playwright_Jest/
 ```
 
 
-### 5.2 Tomar screenshots con Kraken
+### 4.2 Tomar screenshots con Kraken
 En caso no tenga kraken-mobile instalado, se recomienda instalar la version de ruby ```2.6.7```, ejecutar un ```gem install bundler``` y luego ```bundle install```  
 
 Si ya tiene instalado kraken-mobile abrir el archivo ```kraken_properties.json``` y configuar los valores de _GHOST_URL_, _USER_ o _PASSWORD_ en caso tenga otros valores. Es importante mantener en este archivo el valor "version" v2
@@ -124,7 +117,7 @@ Al final se crearán 20 carpetas en el folder **_./kraken_screenshots_**. Los sc
 
 
 
-## 6. Todas las funcionalidades bajo pruebas de generacion de datos
+## 5. Todas las funcionalidades bajo pruebas de generacion de datos
 
 - Escenarios de funcionalidad **Manejo de posts**
 
