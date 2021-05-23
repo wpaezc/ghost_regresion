@@ -11,7 +11,7 @@
 
 Las incidencias se encuentran registradas en Trello: [Link](https://trello.com/b/e5H7xPH5/incidencias-ghost-3425)
 
-## 4. Resultados finales
+## 3. Resultados finales
 Hemos enfocado las pruebas de generacion de datos en las herramientas Playwright, Kraken, Mockaroo y Faker. Los test se corren sobre la version 3.42.5 de Ghost.
 
 Se corrieron mas de 120 pruebas Pool a priori con las herramientas de Playwright y Mockaroo
@@ -167,7 +167,7 @@ Playwright_Jest/
 ```
 Para ejecutar ejecutar los 5 escenarios faltantes ***playwright-jest*** usar el comando: ```npm test```
 
-Al final se crearán 20 carpetas en el folder **_./playwright_screenshots_**. Los screenshots de los 20 escenarios serán creados en el siguiente formato **_./playwright_screenshots/featureScenario/v2_nombre_del_step.png**
+Al final se crearán 29 carpetas en el folder **_./playwright_screenshots_**. Los screenshots de los 29 escenarios serán creados en el siguiente formato **_./playwright_screenshots/featureScenario/v2_nombre_del_step.png**
 
 ### 6.2 Tomar screenshots con Kraken
 En caso no tenga kraken-mobile instalado, se recomienda instalar la version de ruby ```2.6.7```, ejecutar un ```gem install bundler``` y luego ```bundle install```  
@@ -283,31 +283,4 @@ Tan solo se necesita tener instalado la herramienta ```npm install -g backstopjs
 |Crear una invitación con un email válido|Crear una invitación con un email válido|
 |Elimina invitación a un usuario|Elimina invitación a un usuario|
 
-## 10. Generar datos para escenarios en Playwright
 
-- En el folder <strong>poolSources</strong> se encuentran los datapools de cada uno de los escenarios de prueba generados en Mockaroo
-- En el folder <strong>Playwright</strong> se encuentras los archivos .js para la generacion de datos aleatorios. Los archivos son los siguientes
-  1. fakerSettingsManagementChangeBlogInfoLimit.js
-  2. fakerSettingsManagementChangeBlogInfoValid.js
-  3. fakerSettingsManagementChangeMetadataInvalid.js
-  4. fakerSettingsManagementChangeMetadataLimit.js
-  5. fakerSettingsManagementChangeMetadataValid.js
-  6. fakerUserManagementChangePasswordInvalid.js
-  7. fakerUserManagementChangeUserDataInvalid.js
-  8. fakerUserManagementChangeUserDataLimit.js
-  9. fakerUserManagementChangeUserDataValid.js
-  10. fakerUserManagementInviteStaffInvalid.js
-  11. fakerUserManagementInviteStaffLimit.js
-  12. fakerUserManagementInviteStaffValid.js
-  13. pageManagementCreatePageDraftRandom.js
-  14. pageManagementPublishPageRandom.js
-  15. postManagementCreatePostDraftRandom.js
-  16. postManagementPublishPostRandom.js
-  17. settingsManagementChangeMetadataRandom.js
-  18. userManagementChangePasswordRandom.js
-  19. userManagementChangeUserDataRandom.js
-  20. userManagementInviteStaffRandom.js
-
-- En el folder <strong> playwright_screenshots</strong> se encuentran los folders con algunos screenshots de las pruebas aleatorias. Los folders se pueden identificar con el prefijo <strong> faker </strong> o el sufijo <strong> Random </strong>
-- En el folder <strong> Playwright\models </strong> se encuentra tres configuraciones para acceder a las pruebas: LoginPage.js, LoginPage2.js y LoginPage3.js
-- Las incidencias estan registradas en  [Link](https://trello.com/b/e5H7xPH5/incidencias-ghost-3425) en la lista con nombre: Incidencias Generacion de Datos
