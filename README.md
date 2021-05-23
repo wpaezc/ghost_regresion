@@ -148,6 +148,6 @@ node Playwright/poolRandomUserManagementInviteStaff.js #10 escenarios
 |-|-|
 |Crear una invitación con un email inválido|Crear una invitación con un email inválido|
 |Crear una invitación con un email válido|Crear una invitación con un email válido|
-|Elimina invitación a un usuario|Elimina invitación a un usuario|
+|Elimina invitación a un usuario |Elimina invitación a un usuario|
 
 
