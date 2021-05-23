@@ -49,7 +49,7 @@ Si ya tiene instalado kraken-mobile abrir el archivo ```kraken_properties.json``
 ```
 
 ## 5. Ejecutar los escenarios
-### 4.1  Estrategia con **escenario aleatorio**
+### 5.1  Estrategia con **escenario aleatorio**
 Los **20** escenarios desarrolladas con _kraken_ usan escenarios aleatorios. Para correr las pruebas usar el comando:
 
 ```kraken-mobile run --properties=kraken_properties.json```
@@ -70,7 +70,7 @@ node Playwright/fakerSettingsManagementChangeMetadataInvalid.js
 node Playwright/fakerUserManagementChangeUserDataInvalid.js
 node Playwright/fakerUserManagementInviteStaffValid.js
 ```
-### 4.2  Estrategia con **pool de datos a-priori**
+### 5.2  Estrategia con **pool de datos a-priori**
 
 Para ejecutar los **130** escenarios en _playwright_ correr cada archivo de forma individual:
 
@@ -84,7 +84,7 @@ node Playwright/poolAPrioriUserManagementChangePassword.js #10 escenarios
 node Playwright/poolAPrioriUserManagementChangeUserData.js #10 escenarios
 ```
 
-### 4.3  Estrategia con **pool de datos (pseudo) aleatorio dinámico**
+### 5.3  Estrategia con **pool de datos (pseudo) aleatorio dinámico**
 
 Para ejecutar los **10** escenarios en _playwright_ correr el archivo de forma individual:
 
