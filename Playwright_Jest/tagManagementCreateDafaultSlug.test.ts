@@ -40,7 +40,7 @@ function generateRandomArr(length:number, max:number, min:number) {
 
 
 
- const indexPool= generateRandomArr(20,dataTag.length-1,0);
+ const indexPool= generateRandomArr(30,dataTag.length-1,0);
 //  const indexPoolApi= generateRandomArr(10,10-1,0);
 
 
@@ -54,6 +54,7 @@ const stages = [
     "descriptionTag":dataTag[indexPool[1]].description,
     "meta_title":'',
     "meta_description":'',
+    "meta_url":'',
     },
 
     {"stage":2,
@@ -63,6 +64,7 @@ const stages = [
     "descriptionTag":"",
     "meta_title":'',
     "meta_description":'',
+    "meta_url":'',
     },
 
     {"stage":3,
@@ -72,6 +74,7 @@ const stages = [
     "descriptionTag":dataTag[indexPool[3]].description,
     "meta_title":'',
     "meta_description":'',
+    "meta_url":'',
     },   
 
     {"stage":4,
@@ -81,6 +84,7 @@ const stages = [
     "descriptionTag":dataTag[indexPool[4]].description,
     "meta_title":dataTag[indexPool[4]].meta_title,
     "meta_description":'',
+    "meta_url":'',
     },
 
     {"stage":5,
@@ -90,6 +94,7 @@ const stages = [
     "descriptionTag":dataTag[indexPool[5]].description,
     "meta_title":dataTag[indexPool[5]].meta_title,
     "meta_description":dataTag[indexPool[5]].meta_description,
+    "meta_url":'',
     },
 
     {"stage":6,
@@ -99,6 +104,7 @@ const stages = [
     "descriptionTag":dataTag[indexPool[6]].description,
     "meta_title":'',
     "meta_description":'',
+    "meta_url":'',
     },
 
     {"stage":7,
@@ -108,6 +114,7 @@ const stages = [
     "descriptionTag":"",
     "meta_title":'',
     "meta_description":'',
+    "meta_url":'',
     },
 
     {"stage":8,
@@ -117,6 +124,7 @@ const stages = [
     "descriptionTag":dataTag[indexPool[8]].description,
     "meta_title":'',
     "meta_description":'',
+    "meta_url":'',
     },
 
     {"stage":9,
@@ -126,6 +134,7 @@ const stages = [
     "descriptionTag":dataTag[indexPool[9]].description,
     "meta_title":dataTag[indexPool[9]].meta_title,
     "meta_description":'',
+    "meta_url":'',
     },
 
     {"stage":10,
@@ -135,13 +144,40 @@ const stages = [
     "descriptionTag":dataTag[indexPool[10]].description,
     "meta_title":dataTag[indexPool[10]].meta_title,
     "meta_description":dataTag[indexPool[10]].meta_description,
+    "meta_url":'',
     },
 
-    // {"stage":4,
-    // "testDescription":"Should not create tag with null name ",
-    // "nameTag":'',
-    // "descriptionTag":dataTagApi[indexPoolApi[3]].description,
-    // },
+    {"stage":11,
+    "testDescription":"Should create Tag with all principal & meta_data fill",
+    "nameTag":dataTag[indexPool[11]].name,
+    "color": dataTag[indexPool[11]].color,
+    "descriptionTag":dataTag[indexPool[11]].description,
+    "meta_title":dataTag[indexPool[11]].meta_title,
+    "meta_description":dataTag[indexPool[11]].meta_description,
+    "meta_url":dataTag[indexPool[11]].canonical_url,
+    },
+
+    {"stage":12,
+    "testDescription":"Should not create Tag with all principal & meta_data fill & wrong meta_url",
+    "nameTag":dataTag[indexPool[12]].name,
+    "color": dataTag[indexPool[12]].color,
+    "descriptionTag":dataTag[indexPool[12]].description,
+    "meta_title":dataTag[indexPool[12]].meta_title,
+    "meta_description":dataTag[indexPool[12]].meta_description,
+    "meta_url":dataTag[indexPool[12]].slug,
+    },
+
+    {       
+    "stage":13,
+    "testDescription":"Should not create tag with wrong color ",
+    "nameTag":dataTag[indexPool[13]].name,
+    "color": "aaa",
+    "descriptionTag":"",
+    "meta_title":'',
+    "meta_description":'',
+    "meta_url":'',
+    },
+
 ]
 
 describe('Launch Tag tests', () => {
@@ -171,8 +207,9 @@ describe('Launch Tag tests', () => {
             let nameTag = st.nameTag;
             let descriptionTag = st.descriptionTag;
             let color =  st.color;
-            let meta_title= st.meta_title;
-            let meta_description= st.meta_description;
+            let meta_title = st.meta_title;
+            let meta_description = st.meta_description;
+            let meta_url = st.meta_url;
             
             //Abrir la URL a probar en la página singin y dirigirse a Tag
             await loginPage.login();
@@ -190,7 +227,8 @@ describe('Launch Tag tests', () => {
             
             await newTag.clickExpandMetaTag();
             await newTag.fillNameMetaTitle(meta_title)
-            await newTag.fillNameDescription(meta_description)
+            await newTag.fillNameMetaDescription(meta_description)
+            await newTag.fillMetaUrl(meta_url)
             await screen.shot("fillMetaData");
             
             await newTag.clickSaveTag()
