@@ -160,14 +160,11 @@ const stages = [
 
 describe('Launch Tag tests', () => {
 
-
     stages.forEach((st)=>{
 
         const pathScreenshotsTest =`../${nameScreenPath}/${titleTest}/stage_${st.stage}/`
 
         test(st.testDescription, async () => {
-            
-            
             
             //Contenido de la prueba
             //Creación del objeto browser, el contexto del mismo y el objeto page para manejar la página
