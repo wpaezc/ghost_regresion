@@ -7,12 +7,7 @@
 |Christtian Alfredo Manzo Parra|ca.manzo973@uniandes.edu.co|
 |Wenceslao Crhistopher Paez Chavez|w.paezc@uniandes.edu.co|
 
-
-## 2. Pros y contras de la herramientas utilizadas
-
-El reporte se encuentra en la WIKI del proyecto: [Link](https://github.com/wpaezc/ghost_regresion/wiki/Evaluaci%C3%B3n-de-Herramienta)
-
-## 3. Incidencias reportadas
+## 2. Incidencias reportadas
 
 Las incidencias se encuentran registradas en Trello: [Link](https://trello.com/b/e5H7xPH5/incidencias-ghost-3425)
 
@@ -124,25 +119,45 @@ Dar un ```npm install``` y cambiar los siguientes valores en el archivo de confi
   "nameScreenPath":"playwright_screenshots"
 }
 ```
-Para ejecutar los 15 escenarios de ***Playwright*** se tienen que realizar de forma individual:
+Para ejecutar los 29 escenarios de ***Playwright*** se tienen que realizar de forma individual:
 ```sh
-node Playwright/pageManagementCreatePageDraft.js
-node Playwright/pageManagementPublishPage.js
-node Playwright/pageManagementSearchDraftPages.js
-node Playwright/pageManagementSearchPublishedPages.js
-node Playwright/pageManagementSearchScheduledPages.js
+node Playwright/poolAPrioriPageManagementCreatePageDraft.js
+node Playwright/poolAPrioriPageManagementPublishPage.js
+node Playwright/poolAPrioriPostManagementCreatePostDraft.js
+node Playwright/poolAPrioriPostManagementPublishPost.js
+node Playwright/poolAPrioriSettingsManagementChangeMetadata.js
 
-node Playwright/postManagementCreatePostDraft.js
-node Playwright/postManagementPublishPost.js
-node Playwright/postManagementSearchDraftPosts.js
-node Playwright/postManagementSearchPublishedPosts.js
-node Playwright/postManagementSearchScheduledPosts.js
+node Playwright/poolAPrioriUserManagementChangePassword.js
+node Playwright/poolAPrioriUserManagementChangeUserData.js
+node Playwright/poolAPrioriUserManagementInviteStaff.js
 
-node Playwright/userManagementChangeUserData.js
-node Playwright/userManagementInvalidInvitation.js
-node Playwright/userManagementInviteStaff.js
-node Playwright/userManagementRevokeInvitation.js
-node Playwright/userManagementInvalidPassword.js
+node Playwright/fakerSettingsManagementChangeBlogInfoInvalid.js
+node Playwright/fakerSettingsManagementChangeBlogInfoLimit.js
+node Playwright/fakerSettingsManagementChangeBlogInfoValid.js
+node Playwright/fakerSettingsManagementChangeMetadataInvalid.js
+
+node Playwright/fakerSettingsManagementChangeMetadataLimit.js
+node Playwright/fakerUserManagementChangePasswordInvalid.js
+node Playwright/fakerUserManagementChangeUserDataInvalid.js
+node Playwright/fakerUserManagementChangeUserDataLimit.js
+
+node Playwright/fakerUserManagementChangeUserDataValid.js
+node Playwright/fakerUserManagementInviteStaffInvalid.js
+node Playwright/fakerUserManagementInviteStaffLimit.js
+node Playwright/fakerUserManagementInviteStaffValid.js
+
+Playwright_Jest/
+Playwright_Jest/
+Playwright_Jest/
+
+Playwright_Jest/
+Playwright_Jest/
+Playwright_Jest/
+
+Playwright_Jest/
+Playwright_Jest/
+Playwright_Jest/
+
 ```
 Para ejecutar ejecutar los 5 escenarios faltantes ***playwright-jest*** usar el comando: ```npm test```
 
