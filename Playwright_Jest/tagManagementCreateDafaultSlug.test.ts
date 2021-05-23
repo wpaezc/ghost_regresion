@@ -162,7 +162,7 @@ describe('Launch Tag tests', () => {
 
     stages.forEach((st)=>{
 
-        const pathScreenshotsTest =`../${nameScreenPath}/${titleTest}/stage_${st.stage}/`
+        const pathScreenshotsTest =`./${nameScreenPath}/${titleTest}/stage_${st.stage}/`
         
         test(st.testDescription, async () => {
 
