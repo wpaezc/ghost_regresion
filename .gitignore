@@ -7,3 +7,7 @@ reports/
 .variable.txt
 .byebug
 screensTest/
+
+resemblejs_reports/
+kraken_screenshots/
+playwright_screenshots/
