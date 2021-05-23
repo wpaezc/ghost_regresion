@@ -45,11 +45,11 @@ La version de node recomendada es la ```12.20.1```.
 
 
 
-## 6. Pasos para tomar screenshots en la versión Ghost 3.42.5
+## 5. Pasos para tomar screenshots en la versión Ghost 3.42.5
 Clonar el repositorio y cambiar el código a master: ```git checkout master```
 La version de node recomendada es la ```12.20.1```. 
 
-### 6.1 Tomar screenshots con Playwright
+### 5.1 Tomar screenshots con Playwright
 Dar un ```npm install``` y cambiar los siguientes valores en el archivo de configuración _playwright_properties.json_ en caso que tenga otro ghostUrl, user o password. Es importante mantener en este archivo los valores de "version" v2 y "nameScreenPath" para generar correctamente los nombres del screenshot.
 
 ```json
@@ -61,7 +61,7 @@ Dar un ```npm install``` y cambiar los siguientes valores en el archivo de confi
   "nameScreenPath":"playwright_screenshots"
 }
 ```
-Para ejecutar los 20 escenarios de ***Playwright*** se tienen que realizar de forma individual:
+Para ejecutar los mas de 20 escenarios de ***Playwright*** se tienen que realizar de forma individual:
 ```sh
 node Playwright/poolAPrioriPageManagementCreatePageDraft.js
 node Playwright/poolAPrioriPageManagementPublishPage.js
@@ -105,7 +105,7 @@ Para ejecutar ejecutar los 5 escenarios faltantes ***playwright-jest*** usar el 
 
 Al final se crearán 29 carpetas en el folder **_./playwright_screenshots_**. Los screenshots de los 29 escenarios serán creados en el siguiente formato **_./playwright_screenshots/featureScenario/v2_nombre_del_step.png**
 
-### 6.2 Tomar screenshots con Kraken
+### 5.2 Tomar screenshots con Kraken
 En caso no tenga kraken-mobile instalado, se recomienda instalar la version de ruby ```2.6.7```, ejecutar un ```gem install bundler``` y luego ```bundle install```  
 
 Si ya tiene instalado kraken-mobile abrir el archivo ```kraken_properties.json``` y configuar los valores de _GHOST_URL_, _USER_ o _PASSWORD_ en caso tenga otros valores. Es importante mantener en este archivo el valor "version" v2
@@ -126,7 +126,7 @@ Al final se crearán 20 carpetas en el folder **_./kraken_screenshots_**. Los sc
 
 
 
-## 9. Todas las funcionalidades bajo pruebas y escenarios
+## 6. Todas las funcionalidades bajo pruebas y escenarios
 
 - Escenarios de funcionalidad **Manejo de posts**
 
