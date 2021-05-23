@@ -1,4 +1,4 @@
-# Pruebas de Regresión
+# Pruebas con generación de datos
 ## 1. Integrantes
 |Nombres|Email|
 |-------|------|
@@ -11,39 +11,14 @@
 
 Las incidencias se encuentran en la lista <strong>Incidencias Generacion de Datos </strong> registrada en Trello: [Link](https://trello.com/b/e5H7xPH5/incidencias-ghost-3425)
 
-## 3. Resultados finales
-Hemos enfocado las pruebas de generacion de datos en las herramientas Playwright, Kraken, Mockaroo y Faker. Los test se corren sobre la version 3.42.5 de Ghost.
-
-Se corrieron mas de 120 pruebas Pool a priori con las herramientas de Playwright y Mockaroo
-
-Se corrieron mas de 120 pruebas con las herramientas de Playwright y Faker
-
-Se corrieron mas de 120 pruebas con las herramientas de Kraken y Mockaro
-
-Los screenshots de los test se encuentran en las carpetas **_./kraken_screeenshots_** y **_./playwright_screenshots**.
+## 3. Decripción de estrategias usadas
 
 
+## 4. Configuración necesaria
 
-Los screenshots de los escenarios se pueden encontrar en las siguientes carpetas
+Para configurar **Playwright**:
 
-|Nombre del scenario| Carpeta | Herramienta para screenshots |
-|-----|-----|-----|
-|**Page Management:** Create page with draft state|poolAPrioriPageManagementCreatePageDraft|Playwright|
-|**Page Management:** Publish page|poolAPrioriPageManagementPublishPage|Playwright|
-|**Post Management:** Create post with draft state|poolAPrioriPostManagementCreatePostDraft|Playwright|
-|**Post Management:** Publish post|poolAPrioriPostManagementPublishPost|Playwright|
-|**Setting Management:** Change metadata|poolAPrioriSettingsManagementChangeMetadata|Playwright|
-|**Setting Management:** Change password|poolAPrioriUserManagementChangePasswordRandom|Playwright|
-|**Setting Management:** Change user's data|poolAPrioriUserManagementChangeUserDataRandom|Playwright|
-|**Setting Management:** Invite staff|poolAPrioriUserManagementInviteStaff|Playwright|
-
-
-## 4. Pasos para tomar screenshots en la versión Ghost 3.42.5
-Clonar el repositorio y cambiar el código a master: ```git checkout master```
-La version de node recomendada es la ```12.20.1```. 
-
-### 4.1 Tomar screenshots con Playwright
-Dar un ```npm install``` y cambiar los siguientes valores en el archivo de configuración _playwright_properties.json_ en caso que tenga otro ghostUrl, user o password. Es importante mantener en este archivo los valores de "version" v2 y "nameScreenPath" para generar correctamente los nombres del screenshot.
+Dar un ```npm install``` y cambiar los siguientes valores en el archivo de configuración _playwright_properties.json_ en caso que tenga otro ghostUrl, user o password.
 
 ```json
 {
@@ -54,52 +29,11 @@ Dar un ```npm install``` y cambiar los siguientes valores en el archivo de confi
   "nameScreenPath":"playwright_screenshots"
 }
 ```
-Para ejecutar los mas de 20 escenarios de ***Playwright*** se tienen que realizar de forma individual:
-```sh
-node Playwright/poolAPrioriPageManagementCreatePageDraft.js
-node Playwright/poolAPrioriPageManagementPublishPage.js
-node Playwright/poolAPrioriPostManagementCreatePostDraft.js
-node Playwright/poolAPrioriPostManagementPublishPost.js
-node Playwright/poolAPrioriSettingsManagementChangeMetadata.js
 
-node Playwright/poolAPrioriUserManagementChangePassword.js
-node Playwright/poolAPrioriUserManagementChangeUserData.js
-node Playwright/poolAPrioriUserManagementInviteStaff.js
-
-node Playwright/fakerSettingsManagementChangeBlogInfoInvalid.js
-node Playwright/fakerSettingsManagementChangeBlogInfoLimit.js
-node Playwright/fakerSettingsManagementChangeBlogInfoValid.js
-node Playwright/fakerSettingsManagementChangeMetadataInvalid.js
-
-node Playwright/fakerSettingsManagementChangeMetadataLimit.js
-node Playwright/fakerUserManagementChangePasswordInvalid.js
-node Playwright/fakerUserManagementChangeUserDataInvalid.js
-node Playwright/fakerUserManagementChangeUserDataLimit.js
-
-node Playwright/fakerUserManagementChangeUserDataValid.js
-node Playwright/fakerUserManagementInviteStaffInvalid.js
-node Playwright/fakerUserManagementInviteStaffLimit.js
-node Playwright/fakerUserManagementInviteStaffValid.js
-
-Playwright_Jest/
-Playwright_Jest/
-Playwright_Jest/
-
-Playwright_Jest/
-Playwright_Jest/
-Playwright_Jest/
-
-Playwright_Jest/
-Playwright_Jest/
-Playwright_Jest/
-
-```
-
-
-### 4.2 Tomar screenshots con Kraken
+Para configurar **Kraken**:
 En caso no tenga kraken-mobile instalado, se recomienda instalar la version de ruby ```2.6.7```, ejecutar un ```gem install bundler``` y luego ```bundle install```  
 
-Si ya tiene instalado kraken-mobile abrir el archivo ```kraken_properties.json``` y configuar los valores de _GHOST_URL_, _USER_ o _PASSWORD_ en caso tenga otros valores. Es importante mantener en este archivo el valor "version" v2
+Si ya tiene instalado kraken-mobile abrir el archivo ```kraken_properties.json``` y configuar los valores de _GHOST_URL_, _USER_ o _PASSWORD_ en caso tenga otros valores.
 
 ```json
 {
@@ -111,11 +45,49 @@ Si ya tiene instalado kraken-mobile abrir el archivo ```kraken_properties.json``
   }
 }
 ```
-Se ejecutan las pruebas ***kraken*** con el comando: ```kraken-mobile run --properties=kraken_properties.json```
 
-Al final se crearán 20 carpetas en el folder **_./kraken_screenshots_**. Los screenshots de los 20 escenarios serán creados en el siguiente formato **_./kraken_screenshots/feature_scenario/v2_nombre_del_step.png**
+### 4.1  Estrategia con **escenario aleatorio**
+Los **20** escenarios desarrolladas con _kraken_ usan escenarios aleatorios. Para correr las pruebas usar el comando:
 
+```kraken-mobile run --properties=kraken_properties.json```
 
+Para ejecutar los **12** escenarios en _playwright_ correr cada escenario de forma individual:
+
+```sh
+node Playwright/fakerSettingsManagementChangeBlogInfoInvalid.js
+node Playwright/fakerSettingsManagementChangeMetadataLimit.js
+node Playwright/fakerUserManagementChangeUserDataLimit.js
+node Playwright/fakerSettingsManagementChangeBlogInfoLimit.js
+node Playwright/fakerSettingsManagementChangeMetadataValid.js
+node Playwright/fakerUserManagementChangeUserDataValid.js
+node Playwright/fakerSettingsManagementChangeBlogInfoValid.js
+node Playwright/fakerUserManagementChangePasswordInvalid.js
+node Playwright/fakerUserManagementInviteStaffInvalid.js
+node Playwright/fakerSettingsManagementChangeMetadataInvalid.js
+node Playwright/fakerUserManagementChangeUserDataInvalid.js
+node Playwright/fakerUserManagementInviteStaffValid.js
+```
+### 4.2  Estrategia con **pool de datos a-priori**
+
+Para ejecutar los **130** escenarios en _playwright_ correr cada archivo de forma individual:
+
+```sh
+node poolAPrioriPageManagementCreatePageDraft.js #25 escenarios
+node poolAPrioriPageManagementPublishPage.js #25 escenarios
+node poolAPrioriPostManagementCreatePostDraft.js
+node poolAPrioriPostManagementPublishPost.js
+node poolAPrioriSettingsManagementChangeMetadata.js
+node poolAPrioriUserManagementChangePassword.js #10 escenarios
+node poolAPrioriUserManagementChangeUserData.js
+```
+
+### 4.3  Estrategia con **pool de datos (pseudo) aleatorio dinámico**
+
+Para ejecutar los **10** escenarios en _playwright_ correr el archivo de forma individual:
+
+```sh
+node poolRandomUserManagementInviteStaff.js #10 escenarios
+```
 
 ## 5. Todas las funcionalidades bajo pruebas de generacion de datos
 
@@ -133,7 +105,6 @@ Al final se crearán 20 carpetas en el folder **_./kraken_screenshots_**. Los sc
 |-|-|
 |Crear página sin publicar (Draft)|Crear página sin publicar (Draft)|
 |Crear página y publicar sin adicionar fecha|Crear página y publicar en el instante|
-
 
 - Escenarios de funcionalidad **Manejo de Tags**
 
