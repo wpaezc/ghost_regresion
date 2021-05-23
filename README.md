@@ -75,13 +75,13 @@ node Playwright/fakerUserManagementInviteStaffValid.js
 Para ejecutar los **130** escenarios en _playwright_ correr cada archivo de forma individual:
 
 ```sh
-node poolAPrioriPageManagementCreatePageDraft.js #25 escenarios
-node poolAPrioriPageManagementPublishPage.js #25 escenarios
-node poolAPrioriPostManagementCreatePostDraft.js #25 escenarios
-node poolAPrioriPostManagementPublishPost.js #25 escenarios
-node poolAPrioriSettingsManagementChangeMetadata.js #10 escenarios
-node poolAPrioriUserManagementChangePassword.js #10 escenarios
-node poolAPrioriUserManagementChangeUserData.js #10 escenarios
+node Playwright/poolAPrioriPageManagementCreatePageDraft.js #25 escenarios
+node Playwright/poolAPrioriPageManagementPublishPage.js #25 escenarios
+node Playwright/poolAPrioriPostManagementCreatePostDraft.js #25 escenarios
+node Playwright/poolAPrioriPostManagementPublishPost.js #25 escenarios
+node Playwright/poolAPrioriSettingsManagementChangeMetadata.js #10 escenarios
+node Playwright/poolAPrioriUserManagementChangePassword.js #10 escenarios
+node Playwright/poolAPrioriUserManagementChangeUserData.js #10 escenarios
 ```
 
 ### 4.3  Estrategia con **pool de datos (pseudo) aleatorio dinámico**
@@ -89,7 +89,7 @@ node poolAPrioriUserManagementChangeUserData.js #10 escenarios
 Para ejecutar los **10** escenarios en _playwright_ correr el archivo de forma individual:
 
 ```sh
-node poolRandomUserManagementInviteStaff.js #10 escenarios
+node Playwright/poolRandomUserManagementInviteStaff.js #10 escenarios
 ```
 
 ## 6. Todas las funcionalidades bajo pruebas de generación de datos
