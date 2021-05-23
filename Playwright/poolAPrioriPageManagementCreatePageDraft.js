@@ -11,7 +11,7 @@ const password = config.password;
 const version = `${config.version}_`;
 const nameScreenPath = config.nameScreenPath;
 
-const titleTest = "pageManagementCreatePageDraftRandom";
+const titleTest = "poolAPrioriPageManagementCreatePageDraft";
 const pathScreenshotsTest = `./${nameScreenPath}/${titleTest}/`;
 const dataPool = require("./poolSources/pageManagementCreatePageDraftPool.json");
 

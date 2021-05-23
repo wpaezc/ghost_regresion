@@ -11,7 +11,7 @@ const password = config.password
 const version= `${config.version}_`
 const nameScreenPath=config.nameScreenPath
 
-const titleTest = "settingsManagementChangeMetadata"
+const titleTest = "poolAPrioriSettingsManagementChangeMetadata"
 const pathScreenshotsTest =`./${nameScreenPath}/${titleTest}/`
 const dataPool = require("./poolSources/settingsManagementChangeMetadataPool.json");
 

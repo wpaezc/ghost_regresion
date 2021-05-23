@@ -11,7 +11,7 @@ const password = config.password
 const version= `${config.version}_`
 const nameScreenPath=config.nameScreenPath
 
-const titleTest = "userManagementInviteStaff"
+const titleTest = "poolAPrioriUserManagementInviteStaff"
 const pathScreenshotsTest =`./${nameScreenPath}/${titleTest}/`
 const dataPool = require("./poolSources/userManagementInviteStaffDataPool.json");
 
