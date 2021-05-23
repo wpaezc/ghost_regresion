@@ -3,16 +3,13 @@ import { chromium } from "playwright";
 import {LoginPage} from './loginPage'
 import { NewTag } from "./newTag";
 import {Screen} from "./screen";
-// import {DataPool} from "./data-pool";
-
-
-var assert = require('assert');
-const config = require('../playwright_properties.json');
-
-const version= `${config.version}_`
-const nameScreenPath=config.nameScreenPath
 
 const titleTest = "tagManagementCreateDafaultSlug"
+const config = require('../playwright_properties.json');
+
+const nameScreenPath=config.nameScreenPath
+const version= `${config.version}_`
+
 
 const ghostUrl = config.ghostUrl
 const userEmail = config.user
@@ -21,13 +18,6 @@ const url = `${ghostUrl}/ghost/#/signin`;
 
 const dataTag = require('../fixtures/tag_validate.json');
 
-
-
-// const dataPool= new DataPool()
-
-// const dataTagApi = dataPool.getData()
-
-// console.log(dataTagApi)
 
 function generateRandomArr(length:number, max:number, min:number) {
     let arrayNumbers:Array<number>=[];
@@ -166,18 +156,6 @@ const stages = [
     "meta_description":dataTag[indexPool[12]].meta_description,
     "meta_url":dataTag[indexPool[12]].slug,
     },
-
-    {       
-    "stage":13,
-    "testDescription":"Should not create tag with wrong color ",
-    "nameTag":dataTag[indexPool[13]].name,
-    "color": "aaa",
-    "descriptionTag":"",
-    "meta_title":'',
-    "meta_description":'',
-    "meta_url":'',
-    },
-
 ]
 
 describe('Launch Tag tests', () => {

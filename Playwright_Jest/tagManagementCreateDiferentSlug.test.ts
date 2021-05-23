@@ -11,18 +11,159 @@ const nameScreenPath=config.nameScreenPath
 const pathScreenshotsTest =`./${nameScreenPath}/${titleTest}/`
 const version= `${config.version}_`
 
-
 const ghostUrl = config.ghostUrl
 const userEmail = config.user
 const userPassword = config.password
 const url = `${ghostUrl}/ghost/#/signin`;
+
+const dataTag = require('../fixtures/tag_validate.json');
+
+
+function generateRandomArr(length:number, max:number, min:number) {
+    let arrayNumbers:Array<number>=[];
+    for (let i = 0; i < length; i++) {
+        let newNumber = Math.floor(Math.random() * (max - min)) + min;
+        arrayNumbers.includes(newNumber) ? length += 1 : arrayNumbers.push(newNumber);
+    }
+    return arrayNumbers;
+}
+
+
+
+ const indexPool= generateRandomArr(30,dataTag.length-1,0);
+//  const indexPoolApi= generateRandomArr(10,10-1,0);
+
+
+ 
+const stages = [
+
+    {"stage":1,
+    "testDescription":"Should create tag with description",
+    "nameTag":dataTag[indexPool[1]].name,
+    "color": "",
+    "descriptionTag":dataTag[indexPool[1]].description,
+    "meta_title":'',
+    "meta_description":'',
+    "meta_url":'',
+    },
+
+    {"stage":2,
+    "testDescription":"Should create tag without description ",
+    "nameTag":dataTag[indexPool[2]].name,
+    "color": "",
+    "descriptionTag":"",
+    "meta_title":'',
+    "meta_description":'',
+    "meta_url":'',
+    },
+
+    {"stage":3,
+    "testDescription":"Should not create tag without name  ",
+    "nameTag":'',
+    "color": "",
+    "descriptionTag":dataTag[indexPool[3]].description,
+    "meta_title":'',
+    "meta_description":'',
+    "meta_url":'',
+    },   
+
+    {"stage":4,
+    "testDescription":"Should not create tag without name & with  meta title ",
+    "nameTag":'',
+    "color": "",
+    "descriptionTag":dataTag[indexPool[4]].description,
+    "meta_title":dataTag[indexPool[4]].meta_title,
+    "meta_description":'',
+    "meta_url":'',
+    },
+
+    {"stage":5,
+    "testDescription":"Should not create tag without name & with meta title & meta description ",
+    "nameTag":'',
+    "color": "",
+    "descriptionTag":dataTag[indexPool[5]].description,
+    "meta_title":dataTag[indexPool[5]].meta_title,
+    "meta_description":dataTag[indexPool[5]].meta_description,
+    "meta_url":'',
+    },
+
+    {"stage":6,
+    "testDescription":"Should create tag with description & color",
+    "nameTag":dataTag[indexPool[6]].name,
+    "color": dataTag[indexPool[6]].color,
+    "descriptionTag":dataTag[indexPool[6]].description,
+    "meta_title":'',
+    "meta_description":'',
+    "meta_url":'',
+    },
+
+    {"stage":7,
+    "testDescription":"Should create tag without description  & color",
+    "nameTag":dataTag[indexPool[7]].name,
+    "color": dataTag[indexPool[7]].color,
+    "descriptionTag":"",
+    "meta_title":'',
+    "meta_description":'',
+    "meta_url":'',
+    },
+
+    {"stage":8,
+    "testDescription":"Should not create tag without name & with color ",
+    "nameTag":'',
+    "color": dataTag[indexPool[8]].color,
+    "descriptionTag":dataTag[indexPool[8]].description,
+    "meta_title":'',
+    "meta_description":'',
+    "meta_url":'',
+    },
+
+    {"stage":9,
+    "testDescription":"Should not create tag without name & with meta title & color ",
+    "nameTag":'',
+    "color": dataTag[indexPool[9]].color,
+    "descriptionTag":dataTag[indexPool[9]].description,
+    "meta_title":dataTag[indexPool[9]].meta_title,
+    "meta_description":'',
+    "meta_url":'',
+    },
+
+    {"stage":10,
+    "testDescription":"Should not create tag without name & with meta description & color",
+    "nameTag":'',
+    "color": dataTag[indexPool[10]].color,
+    "descriptionTag":dataTag[indexPool[10]].description,
+    "meta_title":dataTag[indexPool[10]].meta_title,
+    "meta_description":dataTag[indexPool[10]].meta_description,
+    "meta_url":'',
+    },
+
+    {"stage":11,
+    "testDescription":"Should create Tag with all principal & meta_data fill",
+    "nameTag":dataTag[indexPool[11]].name,
+    "color": dataTag[indexPool[11]].color,
+    "descriptionTag":dataTag[indexPool[11]].description,
+    "meta_title":dataTag[indexPool[11]].meta_title,
+    "meta_description":dataTag[indexPool[11]].meta_description,
+    "meta_url":dataTag[indexPool[11]].canonical_url,
+    },
+
+    {"stage":12,
+    "testDescription":"Should not create Tag with all principal & meta_data fill & wrong meta_url",
+    "nameTag":dataTag[indexPool[12]].name,
+    "color": dataTag[indexPool[12]].color,
+    "descriptionTag":dataTag[indexPool[12]].description,
+    "meta_title":dataTag[indexPool[12]].meta_title,
+    "meta_description":dataTag[indexPool[12]].meta_description,
+    "meta_url":dataTag[indexPool[12]].slug,
+    },
+]
+
 
 describe('Launch Tag tests', () => {
 
     test('Crea tag con Diferent Slug Tag', async () => {
 
         //Contenido de la prueba
-        
         //Creación del objeto browser, el contexto del mismo y el objeto page para manejar la página
         const browser = await chromium.launch({
         })
