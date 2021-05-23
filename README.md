@@ -89,7 +89,7 @@ Para ejecutar los **28** escenarios en _playwright-jest_ correr el siguiente com
 ```sh
 npm test
 ```
-o  cada tast de manera individual para analizar en detalle cada ejecución :
+Para correr de manera individual, y ver en detalle cada ejecución :
 - 15 Escenarios
 ```
 jest tagManagementCreateDafaultSlug.test.ts
