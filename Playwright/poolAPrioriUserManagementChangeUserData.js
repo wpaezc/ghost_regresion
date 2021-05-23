@@ -20,6 +20,7 @@ console.log('Run tests for USER MANAGEMENT CHANGE USER DATA - RANDOM');
 
 
 (async () => {
+    console.log("Running data pool: userManagementChangeUserDataPool.json");
     //Definir los navegadores en los que se quiere hacer la prueba
     for (const browserType of ['chromium']){//, 'firefox', 'webkit']) {
 
@@ -27,7 +28,7 @@ console.log('Run tests for USER MANAGEMENT CHANGE USER DATA - RANDOM');
             let obj = dataPool[i];
                 //Contenido de la prueba
                 console.log(browserType+'-------------------------------------------')
-                console.log('Scenario: Change user data')
+                console.log(`Scenario ${i} ${obj.slug}: Change user data`)
             
                 //Creación del objeto browser, el contexto del mismo y el objeto page para manejar la página
                 const browser = await playwright[browserType].launch();

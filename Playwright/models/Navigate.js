@@ -14,6 +14,7 @@ class Navigate {
   async clickOnNewEditor(type) {
     await this.page.click(`css=a[href=\"#/editor/${type}/\"]`);
   }
+
   async saveAndFinishEditing(type) {
     await this.page.click(`css=a[href=\"#/${type}/\"].blue`);
   }

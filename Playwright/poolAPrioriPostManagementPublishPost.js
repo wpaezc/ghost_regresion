@@ -22,12 +22,13 @@ console.log('Run tests for POST MANAGEMENT');
 //Función flecha asíncrona
 (async () => {
   //Definir los navegadores en los que se quiere hacer la prueba
+  console.log("Running data pool: postManagementublishPostPool.json");
   for (const browserType of ['chromium']){//, 'firefox', 'webkit']) {
     for (let i = 0; i < dataPool.length; i++) {
       for (let item of dataPool) {
     //Contenido de la prueba
     console.log(browserType+'-------------------------------------------')
-    console.log('Scenario: Publish post')
+    console.log(`Scenario ${i} ${item[`item${i+1}`]}: Publish post`)
 
     //Creación del objeto browser, el contexto del mismo y el objeto page para manejar la página
     const browser = await playwright[browserType].launch();

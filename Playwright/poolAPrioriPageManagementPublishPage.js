@@ -13,13 +13,15 @@ const nameScreenPath = config.nameScreenPath;
 
 const titleTest = "pageManagementPublishPageRandom";
 const pathScreenshotsTest = `./${nameScreenPath}/${titleTest}/`;
-const dataPool = require("./poolSources/pageManagementPublishPagePool");
+const dataPool = require("./poolSources/pageManagementPublishPagePool.json");
 
 const url = `${ghostUrl}/ghost/#/signin`;
 console.log("Run tests for PAGE MANAGEMENT");
 
 //Función flecha asíncrona
 (async () => {
+
+  console.log("Running data pool: pageManagementPublishPagePool.json");
   //Definir los navegadores en los que se quiere hacer la prueba
   for (const browserType of ["chromium"]) {
     //, 'firefox', 'webkit']) {
@@ -29,7 +31,7 @@ console.log("Run tests for PAGE MANAGEMENT");
         console.log(
           browserType + "-------------------------------------------"
         );
-        console.log("Scenario: Publish page");
+        console.log(`Scenario ${i} ${item[`item${i+1}`]}: Publish page`);
 
         //Creación del objeto browser, el contexto del mismo y el objeto page para manejar la página
         const browser = await playwright[browserType].launch();

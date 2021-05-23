@@ -20,6 +20,8 @@ console.log("Run tests for PAGE MANAGEMENT");
 
 //Función flecha asíncrona
 (async () => {
+
+  console.log("Running data pool: pageManagementCreatePageDraftPool.json");
   //Definir los navegadores en los que se quiere hacer la prueba
   for (const browserType of ["chromium"]) {
     for (let i = 0; i < dataPool.length; i++){
@@ -27,7 +29,7 @@ console.log("Run tests for PAGE MANAGEMENT");
       //, 'firefox', 'webkit']) {
       //Contenido de la prueba
       console.log(browserType + "-------------------------------------------");
-      console.log("Scenario: Create page draft");
+      console.log(`Scenario ${i} ${item[`item${i+1}`]}: Create page draft`);
 
       //Creación del objeto browser, el contexto del mismo y el objeto page para manejar la página
       const browser = await playwright[browserType].launch();
@@ -36,9 +38,6 @@ console.log("Run tests for PAGE MANAGEMENT");
       const loginPage = new LoginPage(page, url, user, password);
       const navigator = new Navigate(page);
       const editor = new Editor(page);
-
-
-
 
       //Abrir la URL a probar en la página y cargar el proyecto en una SPA
       await loginPage.enter_ghost();

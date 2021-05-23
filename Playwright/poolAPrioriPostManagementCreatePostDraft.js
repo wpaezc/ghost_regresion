@@ -20,6 +20,7 @@ console.log("Run tests for POST MANAGEMENT");
 
 //Función flecha asíncrona
 (async () => {
+  console.log("Running data pool: postManagementCreatePostDraftPool.json");
   //Definir los navegadores en los que se quiere hacer la prueba
   for (const browserType of ["chromium"]) {
     //, 'firefox', 'webkit']) {
@@ -29,7 +30,7 @@ console.log("Run tests for POST MANAGEMENT");
         console.log(
           browserType + "-------------------------------------------"
         );
-        console.log("Scenario: Create post draft");
+        console.log(`Scenario ${i} ${item[`item${i+1}`]}: Create post draft`);
 
         //Creación del objeto browser, el contexto del mismo y el objeto page para manejar la página
         const browser = await playwright[browserType].launch();

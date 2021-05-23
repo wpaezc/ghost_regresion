@@ -13,7 +13,7 @@ const nameScreenPath=config.nameScreenPath
 
 const titleTest = "settingsManagementChangeMetadata"
 const pathScreenshotsTest =`./${nameScreenPath}/${titleTest}/`
-const dataPool = require("./poolSources/settingsManagementChangeMetadataPool");
+const dataPool = require("./poolSources/settingsManagementChangeMetadataPool.json");
 
 
 const url = `${ghostUrl}/ghost/#/signin`;
@@ -21,6 +21,8 @@ console.log('Run tests for SETTINGS MANAGEMENT');
 
 //Función flecha asíncrona
 (async () => {
+
+  console.log("Running data pool: settingsManagementChangeMetadataPool.json");
   //Definir los navegadores en los que se quiere hacer la prueba
   for (const browserType of ['chromium']){//, 'firefox', 'webkit']) {
 
@@ -28,7 +30,7 @@ console.log('Run tests for SETTINGS MANAGEMENT');
         let obj = dataPool[i];
     //Contenido de la prueba
         console.log(browserType+'-------------------------------------------');
-        console.log('Scenario:  Change publication metadata with valid values');
+        console.log(`Scenario ${i} ${obj.metatitle}:  Change publication metadata with valid values`);
 
         //Creación del objeto browser, el contexto del mismo y el objeto page para manejar la página
         const browser = await playwright[browserType].launch();

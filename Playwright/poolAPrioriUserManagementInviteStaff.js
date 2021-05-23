@@ -13,8 +13,7 @@ const nameScreenPath=config.nameScreenPath
 
 const titleTest = "userManagementInviteStaff"
 const pathScreenshotsTest =`./${nameScreenPath}/${titleTest}/`
-const dataPool = require("./poolSources/userManagementInviteStaffDataPool");
-
+const dataPool = require("./poolSources/userManagementInviteStaffDataPool.json");
 
 const url = `${ghostUrl}/ghost/#/signin`;
 
@@ -24,6 +23,7 @@ console.log('Run tests for USER MANAGEMENT INVITE STAFF - RANDOM');
 //Función flecha asíncrona
 (async () => {
   //Definir los navegadores en los que se quiere hacer la prueba
+  console.log("Running data pool: userManagementInviteStaffDataPool.json");
   for (const browserType of ['chromium']){//, 'firefox', 'webkit']) {
 
     for (let i = 0; i < dataPool.length; i++) {
@@ -31,7 +31,7 @@ console.log('Run tests for USER MANAGEMENT INVITE STAFF - RANDOM');
         
         //Contenido de la prueba
         console.log(browserType+'-------------------------------------------')
-        console.log('Scenario: Sends invitation')
+        console.log(`Scenario ${i} ${obj.email}: Sends invitation`)
 
         //Creación del objeto browser, el contexto del mismo y el objeto page para manejar la página
         const browser = await playwright[browserType].launch();

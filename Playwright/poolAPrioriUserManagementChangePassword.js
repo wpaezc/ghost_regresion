@@ -13,14 +13,15 @@ const nameScreenPath=config.nameScreenPath
 
 const titleTest = "userManagementChangePasswordRandom"
 const pathScreenshotsTest =`./${nameScreenPath}/${titleTest}/`
-const dataPool = require("./poolSources/userManagementChangePasswordDataPool");
-
+const dataPool = require("./poolSources/userManagementChangePasswordDataPool.json");
 
 const url = `${ghostUrl}/ghost/#/signin`;
 console.log('Run tests for USER MANAGEMENT');
 
 //Función flecha asíncrona
 (async () => {
+  console.log("Running data pool: userManagementChangePasswordDataPool.json");
+
   //Definir los navegadores en los que se quiere hacer la prueba
   for (const browserType of ['chromium']){//, 'firefox', 'webkit']) {
 
@@ -28,7 +29,7 @@ console.log('Run tests for USER MANAGEMENT');
         let obj = dataPool[i];
     //Contenido de la prueba
         console.log(browserType+'-------------------------------------------');
-        console.log('Scenario:  Change password with valid values');
+        console.log(`Scenario ${i} ${obj.pwd}:  Change password with valid values`);
 
         //Creación del objeto browser, el contexto del mismo y el objeto page para manejar la página
         const browser = await playwright[browserType].launch();
