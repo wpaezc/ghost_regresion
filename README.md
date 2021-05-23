@@ -24,20 +24,18 @@ Los screenshots de los test se encuentran en las carpetas **_./kraken_screeensho
 
 
 
-Los 10 escenarios seleccionados para las pruebas con _resembleJS_ son los siguientes:
+Los screenshots de los escenarios se pueden encontrar en las siguientes carpetas
 
 |Nombre del scenario| Carpeta | Herramienta para screenshots |
 |-----|-----|-----|
-|**Page Management:** Create page with draft state|pageManagementCreatePageDraft|Playwright|
-|**Post Management:** Create post with draft state|postManagementCreatePostDraft|Playwright|
-|**Tag Management:** Edit tag name|tagManagementEditTagName|Playwright|
-|**User Management:** Senf invalid invitation|userManagementInvalidInvitation|Playwright|
-|**User Management:** Change password with invalid data|userManagementInvalidPassword|Playwright|
-|**Page Management:** Unpublish published page|page_management_unpublish_published_page|Kraken|
-|**Post Management:** Create post and publish|post_management_create_post_published_now|Kraken|
-|**Post Management:** Create page and publish on future|post_management_create_post_published_on_future|Kraken|
-|**Tag Management:** Change tag meta data|tag_management_change_tag_meta_data|Kraken|
-|**Tag Management:** Delete tag|tag_management_delete_tag|Kraken|
+|**Page Management:** Create page with draft state|poolAPrioriPageManagementCreatePageDraft|Playwright|
+|**Page Management:** Publish page|poolAPrioriPageManagementPublishPage|Playwright|
+|**Post Management:** Create post with draft state|poolAPrioriPostManagementCreatePostDraft|Playwright|
+|**Post Management:** Publish post|poolAPrioriPostManagementPublishPost|Playwright|
+|**Setting Management:** Change metadata|poolAPrioriSettingsManagementChangeMetadata|Playwright|
+|**Setting Management:** Change password|poolAPrioriUserManagementChangePasswordRandom|Playwright|
+|**Setting Management:** Change user's data|poolAPrioriUserManagementChangeUserDataRandom|Playwright|
+|**Setting Management:** Invite staff|poolAPrioriUserManagementInviteStaff|Playwright|
 
 
 El resutados del test de regresión con BackstopJS se encuentra en el archivo **./backstop_data/html_report/index.html**. 
@@ -125,7 +123,7 @@ Dar un ```npm install``` y cambiar los siguientes valores en el archivo de confi
   "nameScreenPath":"playwright_screenshots"
 }
 ```
-Para ejecutar los 29 escenarios de ***Playwright*** se tienen que realizar de forma individual:
+Para ejecutar los 20 escenarios de ***Playwright*** se tienen que realizar de forma individual:
 ```sh
 node Playwright/poolAPrioriPageManagementCreatePageDraft.js
 node Playwright/poolAPrioriPageManagementPublishPage.js
