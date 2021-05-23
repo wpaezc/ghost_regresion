@@ -7,21 +7,22 @@
 |Christtian Alfredo Manzo Parra|ca.manzo973@uniandes.edu.co|
 |Wenceslao Crhistopher Paez Chavez|w.paezc@uniandes.edu.co|
 
-
-## 2. Pros y contras de la herramientas utilizadas
-
-El reporte se encuentra en la WIKI del proyecto: [Link](https://github.com/wpaezc/ghost_regresion/wiki/Evaluaci%C3%B3n-de-Herramienta)
-
-## 3. Incidencias reportadas
+## 2. Incidencias reportadas
 
 Las incidencias se encuentran registradas en Trello: [Link](https://trello.com/b/e5H7xPH5/incidencias-ghost-3425)
 
-## 4. Resultados finales
-Hemos enfocado las 10 pruebas de regresión con la herramienta _resembleJS_, y para terminos de evaluar la herramienta _BackstopJs_ solo hemos realizado 1 prueba de regresión con esta libreria por la dificultad para configurar los escenarios.
+## 3. Resultados finales
+Hemos enfocado las pruebas de generacion de datos en las herramientas Playwright, Kraken, Mockaroo y Faker. Los test se corren sobre la version 3.42.5 de Ghost.
 
-Los screenshots para ambas versiones de Ghost se encuentra en las carpetas **_./kraken_screeenshots_** y **_./playwright_screenshots**. Dentro de estos, cada escenario bajo prueba tiene su propia carpeta, ahi se ecuentran los screenshots para cada paso ejecutado con la versión v1(3.3.0) y v2(3.42.5).
+Se corrieron mas de 120 pruebas Pool a priori con las herramientas de Playwright y Mockaroo
 
-Los resutados de los tests de regresión con ResembleJS se encuentra en la carpeta **./resemblejs_reports**. Cada escenario bajo prueba tiene su propia carpeta, los escenarios de Kraken tienen nombres son subguión(_) y los del playwright con camelCase. En total se evaluarón 10 escenarios, cada uno cuenta con un **_index.html_** donde se puede ver el resultado final.
+Se corrieron mas de 120 pruebas con las herramientas de Playwright y Faker
+
+Se corrieron mas de 120 pruebas con las herramientas de Kraken y Mockaro
+
+Los screenshots de los test se encuentran en las carpetas **_./kraken_screeenshots_** y **_./playwright_screenshots**.
+
+
 
 Los 10 escenarios seleccionados para las pruebas con _resembleJS_ son los siguientes:
 
@@ -124,29 +125,49 @@ Dar un ```npm install``` y cambiar los siguientes valores en el archivo de confi
   "nameScreenPath":"playwright_screenshots"
 }
 ```
-Para ejecutar los 15 escenarios de ***Playwright*** se tienen que realizar de forma individual:
+Para ejecutar los 29 escenarios de ***Playwright*** se tienen que realizar de forma individual:
 ```sh
-node Playwright/pageManagementCreatePageDraft.js
-node Playwright/pageManagementPublishPage.js
-node Playwright/pageManagementSearchDraftPages.js
-node Playwright/pageManagementSearchPublishedPages.js
-node Playwright/pageManagementSearchScheduledPages.js
+node Playwright/poolAPrioriPageManagementCreatePageDraft.js
+node Playwright/poolAPrioriPageManagementPublishPage.js
+node Playwright/poolAPrioriPostManagementCreatePostDraft.js
+node Playwright/poolAPrioriPostManagementPublishPost.js
+node Playwright/poolAPrioriSettingsManagementChangeMetadata.js
 
-node Playwright/postManagementCreatePostDraft.js
-node Playwright/postManagementPublishPost.js
-node Playwright/postManagementSearchDraftPosts.js
-node Playwright/postManagementSearchPublishedPosts.js
-node Playwright/postManagementSearchScheduledPosts.js
+node Playwright/poolAPrioriUserManagementChangePassword.js
+node Playwright/poolAPrioriUserManagementChangeUserData.js
+node Playwright/poolAPrioriUserManagementInviteStaff.js
 
-node Playwright/userManagementChangeUserData.js
-node Playwright/userManagementInvalidInvitation.js
-node Playwright/userManagementInviteStaff.js
-node Playwright/userManagementRevokeInvitation.js
-node Playwright/userManagementInvalidPassword.js
+node Playwright/fakerSettingsManagementChangeBlogInfoInvalid.js
+node Playwright/fakerSettingsManagementChangeBlogInfoLimit.js
+node Playwright/fakerSettingsManagementChangeBlogInfoValid.js
+node Playwright/fakerSettingsManagementChangeMetadataInvalid.js
+
+node Playwright/fakerSettingsManagementChangeMetadataLimit.js
+node Playwright/fakerUserManagementChangePasswordInvalid.js
+node Playwright/fakerUserManagementChangeUserDataInvalid.js
+node Playwright/fakerUserManagementChangeUserDataLimit.js
+
+node Playwright/fakerUserManagementChangeUserDataValid.js
+node Playwright/fakerUserManagementInviteStaffInvalid.js
+node Playwright/fakerUserManagementInviteStaffLimit.js
+node Playwright/fakerUserManagementInviteStaffValid.js
+
+Playwright_Jest/
+Playwright_Jest/
+Playwright_Jest/
+
+Playwright_Jest/
+Playwright_Jest/
+Playwright_Jest/
+
+Playwright_Jest/
+Playwright_Jest/
+Playwright_Jest/
+
 ```
 Para ejecutar ejecutar los 5 escenarios faltantes ***playwright-jest*** usar el comando: ```npm test```
 
-Al final se crearán 20 carpetas en el folder **_./playwright_screenshots_**. Los screenshots de los 20 escenarios serán creados en el siguiente formato **_./playwright_screenshots/featureScenario/v2_nombre_del_step.png**
+Al final se crearán 29 carpetas en el folder **_./playwright_screenshots_**. Los screenshots de los 29 escenarios serán creados en el siguiente formato **_./playwright_screenshots/featureScenario/v2_nombre_del_step.png**
 
 ### 6.2 Tomar screenshots con Kraken
 En caso no tenga kraken-mobile instalado, se recomienda instalar la version de ruby ```2.6.7```, ejecutar un ```gem install bundler``` y luego ```bundle install```  
@@ -262,31 +283,4 @@ Tan solo se necesita tener instalado la herramienta ```npm install -g backstopjs
 |Crear una invitación con un email válido|Crear una invitación con un email válido|
 |Elimina invitación a un usuario|Elimina invitación a un usuario|
 
-## 10. Generar datos para escenarios en Playwright
 
-- En el folder <strong>poolSources</strong> se encuentran los datapools de cada uno de los escenarios de prueba generados en Mockaroo
-- En el folder <strong>Playwright</strong> se encuentras los archivos .js para la generacion de datos aleatorios. Los archivos son los siguientes
-  1. fakerSettingsManagementChangeBlogInfoLimit.js
-  2. fakerSettingsManagementChangeBlogInfoValid.js
-  3. fakerSettingsManagementChangeMetadataInvalid.js
-  4. fakerSettingsManagementChangeMetadataLimit.js
-  5. fakerSettingsManagementChangeMetadataValid.js
-  6. fakerUserManagementChangePasswordInvalid.js
-  7. fakerUserManagementChangeUserDataInvalid.js
-  8. fakerUserManagementChangeUserDataLimit.js
-  9. fakerUserManagementChangeUserDataValid.js
-  10. fakerUserManagementInviteStaffInvalid.js
-  11. fakerUserManagementInviteStaffLimit.js
-  12. fakerUserManagementInviteStaffValid.js
-  13. pageManagementCreatePageDraftRandom.js
-  14. pageManagementPublishPageRandom.js
-  15. postManagementCreatePostDraftRandom.js
-  16. postManagementPublishPostRandom.js
-  17. settingsManagementChangeMetadataRandom.js
-  18. userManagementChangePasswordRandom.js
-  19. userManagementChangeUserDataRandom.js
-  20. userManagementInviteStaffRandom.js
-
-- En el folder <strong> playwright_screenshots</strong> se encuentran los folders con algunos screenshots de las pruebas aleatorias. Los folders se pueden identificar con el prefijo <strong> faker </strong> o el sufijo <strong> Random </strong>
-- En el folder <strong> Playwright\models </strong> se encuentra tres configuraciones para acceder a las pruebas: LoginPage.js, LoginPage2.js y LoginPage3.js
-- Las incidencias estan registradas en  [Link](https://trello.com/b/e5H7xPH5/incidencias-ghost-3425) en la lista con nombre: Incidencias Generacion de Datos
