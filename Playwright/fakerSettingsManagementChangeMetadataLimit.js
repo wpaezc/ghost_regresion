@@ -27,7 +27,7 @@ console.log('Run tests for SETTINGS MANAGEMENT CHANGE METADATA INVALID');
 
     //Contenido de la prueba
         console.log(browserType+'-------------------------------------------');
-        console.log('Scenario:  Change publication metadata with invalid values');
+        console.log(`Scenario ${i}:  Change publication metadata with invalid values`);
 
         //Creación del objeto browser, el contexto del mismo y el objeto page para manejar la página
         const browser = await playwright[browserType].launch();

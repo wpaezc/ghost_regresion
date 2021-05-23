@@ -27,11 +27,9 @@ console.log('Run tests for USER MANAGEMENT INVITE STAFF - RANDOM');
   for (const browserType of ['chromium']){//, 'firefox', 'webkit']) {
 
     for (let i = 0; i < 2; i++) {
-        let obj = dataPool[i];
-        
         //Contenido de la prueba
         console.log(browserType+'-------------------------------------------')
-        console.log('Scenario: Sends invitation')
+        console.log(`Scenario ${i}: Sends invitation`)
 
         //Creación del objeto browser, el contexto del mismo y el objeto page para manejar la página
         const browser = await playwright[browserType].launch();
@@ -58,7 +56,7 @@ console.log('Run tests for USER MANAGEMENT INVITE STAFF - RANDOM');
         await screen.shot('filledInvitation')
 
         await page.click('"Send invitation now"')
-        await new Promise(r => setTimeout(r, 7000));
+        await new Promise(r => setTimeout(r, 2000));
         await screen.shot('sentInvitation')
 
         await page.click('text=Tags')

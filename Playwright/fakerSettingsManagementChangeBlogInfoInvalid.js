@@ -23,10 +23,10 @@ console.log('Run tests for SETTINGS MANAGEMENT CHANGE INVALID BLOG INFO');
   //Definir los navegadores en los que se quiere hacer la prueba
   for (const browserType of ['chromium']){//, 'firefox', 'webkit']) {
 
-    for (let i = 0; i < 10; i++) {
+    for (let i = 0; i < 2; i++) {
     //Contenido de la prueba
         console.log(browserType+'-------------------------------------------');
-        console.log('Scenario:  Change publication info with valid values');
+        console.log(`Scenario ${i}:  Change publication info with valid values`);
 
         //Creación del objeto browser, el contexto del mismo y el objeto page para manejar la página
         const browser = await playwright[browserType].launch();
