@@ -4,6 +4,7 @@ const { Editor } = require('./models/Editor');
 const {Screen} = require('./models/screen')
 const playwright = require('playwright');
 const config = require('../playwright_properties.json');
+const axios = require('axios').default;
 
 const ghostUrl = config.ghostUrl
 const user = config.user
@@ -13,17 +14,19 @@ const nameScreenPath=config.nameScreenPath
 
 const titleTest = "poolAPrioriUserManagementInviteStaff"
 const pathScreenshotsTest =`./${nameScreenPath}/${titleTest}/`
-const dataPool = require("./poolSources/userManagementInviteStaffDataPool.json");
-
 const url = `${ghostUrl}/ghost/#/signin`;
+const pool_url = "https://api.mockaroo.com/api/d352c390?count=10&key=3cfe4b60"
 
 console.log('Run tests for USER MANAGEMENT INVITE STAFF - RANDOM');
-
 
 //Función flecha asíncrona
 (async () => {
   //Definir los navegadores en los que se quiere hacer la prueba
-  console.log("Running data pool: userManagementInviteStaffDataPool.json");
+  console.log("Running data pool Random: userManagementInviteStaffDataPool.json");
+
+  const response = await axios.get(pool_url);
+  const dataPool = response.data
+
   for (const browserType of ['chromium']){//, 'firefox', 'webkit']) {
 
     for (let i = 0; i < dataPool.length; i++) {
