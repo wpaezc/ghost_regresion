@@ -162,15 +162,17 @@ describe('Launch Tag tests', () => {
 
     stages.forEach((st)=>{
 
-        const pathScreenshotsTest =`../${nameScreenPath}/${titleTest}/stage_${st.stage}/`
-
+        let pathScreenshotsTest =`../${nameScreenPath}/${titleTest}/stage_${st.stage}/`
+        
         test(st.testDescription, async () => {
+
             
             //Contenido de la prueba
             //Creación del objeto browser, el contexto del mismo y el objeto page para manejar la página
             const browser = await chromium.launch({
                 // headless: false
             })
+            
             
             const context = await browser.newContext();
             const page = await context.newPage();
