@@ -7,11 +7,7 @@
 |Christtian Alfredo Manzo Parra|ca.manzo973@uniandes.edu.co|
 |Wenceslao Crhistopher Paez Chavez|w.paezc@uniandes.edu.co|
 
-## 2. Descripción de estrategias usadas
-
-En el siguiente link en la Wiki: [Link](https://github.com/wpaezc/ghost_validacion_datos/wiki/Estrategias-usadas)
-
-## 3. Configuración necesaria antes de ejecutar las pruebas
+## 2 Configuración necesaria antes de ejecutar las pruebas
 Dado la cantidad de escenarios bajo pruebas, es sumamente importante tener configurado GHOST 3.42.5 para no limitar los **100** inicios de sesión por hora. Se recomienda usar [este archivo de configuración](https://github.com/TryGhost/Ghost/blob/main/core/shared/config/defaults.json#L52) como base, cambiando los valores del key "span" necesarios. 
 
 Para configurar **Playwright**:
@@ -44,8 +40,8 @@ Si ya tiene instalado kraken-mobile abrir el archivo ```kraken_properties.json``
 }
 ```
 
-## 4. Ejecutar los escenarios
-### 4.1  Estrategia con **escenario aleatorio**
+## 3 Ejecutar los escenarios
+### 3.1 Estrategia con **escenario aleatorio**
 Los **20** escenarios desarrolladas con _kraken_ usan escenarios aleatorios. Para correr las pruebas usar el comando:
 
 ```kraken-mobile run --properties=kraken_properties.json```
@@ -66,7 +62,7 @@ node Playwright/fakerSettingsManagementChangeMetadataInvalid.js
 node Playwright/fakerUserManagementChangeUserDataInvalid.js
 node Playwright/fakerUserManagementInviteStaffValid.js
 ```
-### 4.2  Estrategia con **pool de datos a-priori**
+### 3.2  Estrategia con **pool de datos a-priori**
 
 Para ejecutar los **130** escenarios en _playwright_ correr cada archivo de forma individual:
 
@@ -95,7 +91,7 @@ jest tagManagementCreateDafaultSlug.test.ts
 jest tagManagementCreateDiferentSlug.test.ts
 ``` 
 
-### 4.3  Estrategia con **pool de datos (pseudo) aleatorio dinámico**
+### 3.3  Estrategia con **pool de datos (pseudo) aleatorio dinámico**
 
 Para ejecutar los **10** escenarios en _playwright_ correr el archivo de forma individual:
 
@@ -103,7 +99,7 @@ Para ejecutar los **10** escenarios en _playwright_ correr el archivo de forma i
 node Playwright/poolRandomUserManagementInviteStaff.js #10 escenarios
 ```
 
-## 5. Todas las funcionalidades bajo pruebas de generación de datos
+## 4. Todas las funcionalidades bajo pruebas de generación de datos
 
 - Escenarios de funcionalidad **Manejo de posts**
 
