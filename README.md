@@ -7,15 +7,11 @@
 |Christtian Alfredo Manzo Parra|ca.manzo973@uniandes.edu.co|
 |Wenceslao Crhistopher Paez Chavez|w.paezc@uniandes.edu.co|
 
-## 2. Incidencias reportadas
+## 2. Descripción de estrategias usadas
 
-Las incidencias se encuentran en la lista <strong>Incidencias Generacion de Datos </strong> registrada en Trello: [Link](https://trello.com/b/e5H7xPH5/incidencias-ghost-3425)
+En el siguiente link en la Wiki: [Link](https://github.com/wpaezc/ghost_validacion_datos/wiki/Estrategias-usadas)
 
-## 3. Descripción de estrategias usadas
-
-En el siguiente link en la Wiki: [Link](https://github.com/wpaezc/ghost_regresion/wiki/Estrategias-usadas)
-
-## 4. Configuración necesaria antes de ejecutar las pruebas
+## 3. Configuración necesaria antes de ejecutar las pruebas
 Dado la cantidad de escenarios bajo pruebas, es sumamente importante tener configurado GHOST 3.42.5 para no limitar los **100** inicios de sesión por hora. Se recomienda usar [este archivo de configuración](https://github.com/TryGhost/Ghost/blob/main/core/shared/config/defaults.json#L52) como base, cambiando los valores del key "span" necesarios. 
 
 Para configurar **Playwright**:
@@ -48,8 +44,8 @@ Si ya tiene instalado kraken-mobile abrir el archivo ```kraken_properties.json``
 }
 ```
 
-## 5. Ejecutar los escenarios
-### 5.1  Estrategia con **escenario aleatorio**
+## 4. Ejecutar los escenarios
+### 4.1  Estrategia con **escenario aleatorio**
 Los **20** escenarios desarrolladas con _kraken_ usan escenarios aleatorios. Para correr las pruebas usar el comando:
 
 ```kraken-mobile run --properties=kraken_properties.json```
@@ -70,7 +66,7 @@ node Playwright/fakerSettingsManagementChangeMetadataInvalid.js
 node Playwright/fakerUserManagementChangeUserDataInvalid.js
 node Playwright/fakerUserManagementInviteStaffValid.js
 ```
-### 5.2  Estrategia con **pool de datos a-priori**
+### 4.2  Estrategia con **pool de datos a-priori**
 
 Para ejecutar los **130** escenarios en _playwright_ correr cada archivo de forma individual:
 
@@ -99,7 +95,7 @@ jest tagManagementCreateDafaultSlug.test.ts
 jest tagManagementCreateDiferentSlug.test.ts
 ``` 
 
-### 5.3  Estrategia con **pool de datos (pseudo) aleatorio dinámico**
+### 4.3  Estrategia con **pool de datos (pseudo) aleatorio dinámico**
 
 Para ejecutar los **10** escenarios en _playwright_ correr el archivo de forma individual:
 
@@ -107,7 +103,7 @@ Para ejecutar los **10** escenarios en _playwright_ correr el archivo de forma i
 node Playwright/poolRandomUserManagementInviteStaff.js #10 escenarios
 ```
 
-## 6. Todas las funcionalidades bajo pruebas de generación de datos
+## 5. Todas las funcionalidades bajo pruebas de generación de datos
 
 - Escenarios de funcionalidad **Manejo de posts**
 
