@@ -7,7 +7,7 @@
 |Christtian Alfredo Manzo Parra|ca.manzo973@uniandes.edu.co|
 |Wenceslao Crhistopher Paez Chavez|w.paezc@uniandes.edu.co|
 
-## 2 Configuración necesaria antes de ejecutar las pruebas
+## 2. Configuración necesaria antes de ejecutar las pruebas
 Dado la cantidad de escenarios bajo pruebas, es sumamente importante tener configurado GHOST 3.42.5 para no limitar los **100** inicios de sesión por hora. Se recomienda usar [este archivo de configuración](https://github.com/TryGhost/Ghost/blob/main/core/shared/config/defaults.json#L52) como base, cambiando los valores del key "span" necesarios. 
 
 Para configurar **Playwright**:
@@ -40,7 +40,7 @@ Si ya tiene instalado kraken-mobile abrir el archivo ```kraken_properties.json``
 }
 ```
 
-## 3 Ejecutar los escenarios
+## 3. Ejecutar los escenarios
 ### 3.1 Estrategia con **escenario aleatorio**
 Los **20** escenarios desarrolladas con _kraken_ usan escenarios aleatorios. Para correr las pruebas usar el comando:
 
